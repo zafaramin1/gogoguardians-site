@@ -1809,7 +1809,7 @@ let BOOK_READY=false;function layoutBook(){if(BOOK_READY)return;BOOK_READY=true;
 document.querySelectorAll('.buy').forEach(b=>b.onclick=()=>{location.href='/#book'});
 BOOK.goScreen=n=>go(n==='trail'?'pick':n);
 {const sb=document.getElementById('startBtn');if(sb)sb.onclick=e=>{e.stopPropagation();let pn=document.getElementById('chPick');if(pn){pn.remove();return}pn=document.createElement('div');pn.id='chPick';pn.className='mpanel chpick';const ks=Object.keys(RIDDLES).map(Number).sort((a,b)=>a-b);let h='<div class="mph"><b>Pick a chapter</b><button type="button" class="mpx" aria-label="Close">&times;</button></div><div class="chgrid">';ks.forEach(ch=>{const n=RIDDLES[ch].items.length,d=RIDDLES[ch].items.filter((_,k)=>solved[ch+'-'+k]).length;h+='<button type="button" data-ch="'+ch+'"'+(chOK(ch)?'':' class="pwl"')+'><b>'+(chOK(ch)?ch:'&#128274;')+'</b><span>'+RIDDLES[ch].title.replace(/^Chapter \d+ · /,'')+'</span><i>'+(d>=n?'✓ done':d+' of '+n)+'</i></button>'});pn.innerHTML=h+'</div>';document.body.append(pn);const r=sb.getBoundingClientRect();pn.style.left=Math.max(8,Math.min(innerWidth-350,r.left))+'px';pn.style.top='8px';pn.querySelector('.mpx').onclick=()=>pn.remove();pn.addEventListener('click',ev=>{ev.stopPropagation();const b=ev.target.closest('[data-ch]');if(!b)return;WF=null;rch=+b.dataset.ch;ri=0;tries=0;pn.remove();riddle();go('trail')});setTimeout(()=>document.addEventListener('click',function cl(){pn.remove();document.removeEventListener('click',cl)}),0)}}setTimeout(updHome,300);{const sB=document.getElementById('secretsBtn');if(sB)sB.onclick=e=>{e.stopPropagation();openSecrets()}}
-{const hb=document.getElementById('hintBtn');if(hb)hb.onclick=e=>{e.stopPropagation();if(window.__hint)__hint()}}
+{const hb=document.getElementById('hintBtn');if(hb)hb.onclick=e=>{e.stopPropagation();if(window.__hint){__hint();hb.classList.add('used')}}}
 {const ld=document.querySelector('[data-name=home] .lead');if(ld&&typeof RIDDLES!=='undefined'){const n_=Object.values(RIDDLES).reduce((a,c)=>a+c.items.length,0)+(window.__ridDone?0:45);const nc=Object.keys(RIDDLES).length;ld.textContent=ld.textContent.replace('Solve Gogo’s riddles from the book','Solve '+n_+' of Gogo’s riddles from '+nc+' chapters of the book')}}
 
 // ===== 3D cut emerald =====
@@ -2209,7 +2209,7 @@ function addNav(){if(matchMedia('(min-width:821px)').matches)return;const meta=d
  const mk=(d,lab)=>{const c=ks[k+d];const b=document.createElement('button');b.type='button';b.className='chnb';if(c==null){b.style.visibility='hidden';b.textContent='.';return b}b.textContent=lab.replace('N',c);b.onclick=()=>{if(window.chOK&&!window.chOK(c)){openPaywall('Chapter '+c+' is part of the full adventure.');return}try{WF=null}catch(e){}rch=c;ri=0;tries=0;riddle();if(typeof go==='function')go('trail')};return b};
  const all=document.createElement('button');all.type='button';all.className='chnb';all.textContent='All chapters';all.onclick=()=>{const pb=document.getElementById('pickBtn')||[...document.querySelectorAll('button')].find(x=>/Pick a chapter/.test(x.textContent));if(pb)pb.click()};
  row.append(mk(-1,'\u2039 Chapter N'),all,mk(1,'Chapter N \u203a'));meta.after(row)}
-riddle=function(){const r=orig.apply(this,arguments);try{addNav()}catch(e){}return r}})();
+riddle=function(){const r=orig.apply(this,arguments);try{addNav()}catch(e){}try{const hb=document.getElementById('hintBtn');if(hb)hb.classList.remove('used')}catch(e){}return r}})();
 </script>
 <style>.chnav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:2px 0 8px}.chnav .chnb{flex:0 1 auto;font:700 13px var(--body,system-ui);color:#f6d27a;background:rgba(10,12,36,.7);border:1px solid rgba(217,164,65,.55);border-radius:999px;padding:6px 12px;white-space:nowrap;cursor:pointer}@media (min-width:821px){.chnav{display:none}}
 /* Phones: the reveal (treasure) screen ran off the right edge and the treasure sat below the screen. Keep it all in view. */
@@ -2220,6 +2220,12 @@ riddle=function(){const r=orig.apply(this,arguments);try{addNav()}catch(e){}retu
  body.rvopen #reveal #fp{max-width:min(44vw,180px)!important}
  body.rvopen .treasure .tbox{width:min(40vw,160px)!important}
 }
+
+#hintBtn.used{display:none!important}
 </style>
+<script>
+// Phones: after a wrong answer, bring Gogo's short note under the choices into view inside the riddle card.
+document.addEventListener('click',e=>{if(!e.target.closest||!e.target.closest('.screen[data-name=trail] .opts'))return;setTimeout(()=>{const f=document.querySelector('.screen[data-name=trail] .fb');const c=document.querySelector('.screen[data-name=trail] .rcard,#rcard');if(f&&c&&c.scrollHeight>c.clientHeight+2){const fr=f.getBoundingClientRect(),cr=c.getBoundingClientRect();if(fr.bottom>cr.bottom)c.scrollBy({top:fr.bottom-cr.bottom+12,behavior:'smooth'})}},350)},true);
+</script>
 </body>
 </html>
