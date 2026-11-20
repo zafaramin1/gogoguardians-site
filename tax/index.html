@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Partner Tax Form - Gogo Guardians</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Fondamento:ital@1&display=swap">
+<style>
+:root{--gold:#d9a441;--gold-hi:#f6d27a;--ink:#f3e3bd;--muted:#c9b98f;--panel:rgba(14,12,40,.82)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font:17px/1.6 system-ui,sans-serif;background:#05061a radial-gradient(ellipse at 30% 10%,rgba(90,50,160,.45),transparent 55%)}
+.wrap{max-width:720px;margin:0 auto;padding:22px 16px 60px}
+.top a{color:var(--gold-hi);text-decoration:none;font-weight:700}
+h1{font:700 clamp(28px,6vw,44px)/1.15 'Cinzel',Georgia,serif;color:var(--gold-hi);margin:22px 0 8px}
+.sub{font:italic 20px 'Fondamento',Georgia,serif;color:#ffe9b0;margin:0 0 16px}
+.panel{background:var(--panel);border:1px solid rgba(217,164,65,.45);border-radius:16px;padding:20px;margin:16px 0}
+a{color:var(--gold-hi)}
+form{display:grid;gap:12px}
+input,select{padding:12px;border-radius:10px;border:1px solid #5a3a0c;background:#0d0f26;color:var(--ink);font:16px system-ui;width:100%}
+input[type=file]{padding:10px}
+label.c{display:flex;gap:10px;align-items:flex-start;font-size:15px}label.c input{width:auto;margin-top:4px}
+.btn{justify-self:start;padding:14px 22px;border-radius:999px;border:0;background:linear-gradient(#2fe39a,#13875a);color:#04140c;font:800 17px system-ui;cursor:pointer}
+.btn[disabled]{opacity:.6;cursor:wait}
+.note{color:var(--muted);font-size:15px}
+.err{color:#ff9a8a;font-weight:700}
+.done{padding:16px;border-radius:12px;border:1px solid #13875a;background:rgba(19,135,90,.15)}
+</style></head><body><div class="wrap">
+<div class="top"><a href="/">&larr; Gogo Guardians</a></div>
+<h1>Partner tax form</h1>
+<p class="sub">Send it here, never by email.</p>
+<div class="panel">
+<p style="margin-top:0">We pay partners ourselves, so the tax form comes to us. Payhip only takes the families' payments.</p>
+<ul>
+<li><b>In the United States:</b> fill in IRS Form W-9: <a href="https://www.irs.gov/pub/irs-pdf/fw9.pdf" target="_blank" rel="noopener">download the W-9</a>.</li>
+<li><b>Outside the United States:</b> fill in IRS Form W-8BEN: <a href="https://www.irs.gov/pub/irs-pdf/fw8ben.pdf" target="_blank" rel="noopener">download the W-8BEN</a>.</li>
+</ul>
+<p class="note" style="margin-bottom:0">Sign it, save it as a PDF or take a clear photo, and upload it below. It goes straight into a private folder that only the owner of Gogo Guardians can open. It is used only to pay you and for tax reporting.</p>
+</div>
+<div class="panel">
+<form id="tf">
+ <p class="note" style="margin:0">Boxes marked * are required.</p>
+ <input name="name" placeholder="Full name *" required autocomplete="name">
+ <input name="email" type="email" placeholder="Email you use for your Payhip partner account *" required autocomplete="email">
+ <input name="pkey" placeholder="Your partner key (the code at the end of your partner link)">
+ <select name="where" required><option value="">Where do you live? *</option><option value="us">In the United States (W-9)</option><option value="other">Outside the United States (W-8BEN)</option></select>
+ <input name="country" placeholder="Country *" required autocomplete="country-name">
+ <label class="note" for="file" style="margin-bottom:-6px">Your signed form (PDF, JPG or PNG, up to 10 MB) *</label>
+ <input id="file" name="file" type="file" accept="application/pdf,image/jpeg,image/png" required>
+ <input name="hp_url" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+ <label class="c"><input type="checkbox" name="agree" value="yes" required> I confirm the information on my form is correct and I am 18 or older.</label>
+ <p class="err" id="err" hidden></p>
+ <button class="btn" id="go">Send my tax form securely</button>
+</form>
+<div class="done" id="done" hidden><b>Thank you.</b> We received your tax form. It is stored privately and only used to pay you and for tax reporting.</div>
+</div>
+<p class="note">Questions? <a href="mailto:admin@iddas.tech">admin@iddas.tech</a> &middot; <a href="/partner-terms/">Partner Terms</a></p>
+</div>
+<script>
+const TAX='https://script.google.com/macros/s/AKfycbwKU0UQK5MTf6lCsl-8zItesQnr6IxxDXcAZT3wOql8smRc8pCn5_-aEKWflXfgUY55/exec';
+const fm=document.getElementById('tf'),err=document.getElementById('err'),go=document.getElementById('go');
+const show=m=>{err.textContent=m;err.hidden=!m};
+fm.onsubmit=async e=>{
+ e.preventDefault();show('');
+ const f=document.getElementById('file').files[0];
+ if(!f)return show('Please attach your signed form.');
+ if(!/^(application\/pdf|image\/jpeg|image\/png)$/.test(f.type))return show('Please attach a PDF, JPG or PNG file.');
+ if(f.size>10*1024*1024)return show('The file is bigger than 10 MB.');
+ go.disabled=true;go.textContent='Sending...';
+ try{
+  const data=await new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(String(r.result).split(',')[1]);r.onerror=no;r.readAsDataURL(f)});
+  const d=new FormData(fm);d.delete('file');
+  const body=new URLSearchParams(d);body.set('mimetype',f.type);body.set('data',data);
+  const j=await fetch(TAX,{method:'POST',body}).then(r=>r.json());
+  if(j.ok){fm.hidden=true;document.getElementById('done').hidden=false}
+  else show(j.error||'Something went wrong. Please try again.');
+ }catch(x){show('Something went wrong. Please try again, or write to admin@iddas.tech.')}
+ go.disabled=false;go.textContent='Send my tax form securely';
+};
+</script>
+</body></html>

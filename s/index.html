@@ -76,6 +76,9 @@ form input,form select{padding:12px;border-radius:10px;border:1px solid #5a3a0c;
  <h2>For our families</h2>
  <div class="price"><b>$8.99</b><s>$14.95</s><span>through our school</span><button type="button" class="qtip" aria-label="More about this">?</button><span class="qtip-body">Anyone can buy here for $8.99: parents, grandparents, cousins and friends. Each purchase is its own family copy, and $3.00 of every sale goes to the school.</span></div>
  <p id="famtxt">Grandparents, cousins and friends can get it too.</p>
+ <label for="femail" style="display:block;font-size:15px;color:var(--muted);margin:6px 0 4px">The email you will use at checkout, so our school gets its $3.00<button type="button" class="qtip" aria-label="More about this">?</button><span class="qtip-body">We use it only to match your order to this school, so the school is paid its share. We never email you about anything else, and we never ask for anything about your child.</span></label>
+ <input id="femail" type="email" autocomplete="email" placeholder="you@example.com" style="width:100%;max-width:420px;padding:12px;border-radius:10px;border:1px solid #5a3a0c;background:#0d0f26;color:inherit;font:16px system-ui;margin-bottom:10px">
+ <p id="ferr" style="color:#ff9a8a;font-weight:700;margin:0 0 8px" hidden>Please type your email first, so our school gets credit.</p>
  <a class="btn" id="fam" href="#">Get it for $8.99</a>
 </div>
 <div class="panel">
@@ -97,7 +100,14 @@ const show=s=>{
  document.getElementById('fam').href='https://payhip.com/b/jMZfz'+(/^[A-Za-z0-9_-]{3,40}$/.test(s.pkey||'')?'/'+encodeURIComponent(s.pkey):'');
  document.getElementById('famtxt').textContent='Grandparents, cousins and friends can get it too, and part of every sale supports our school.';
  document.getElementById('page').style.display='block';
+ window.__slug=k;
 };
+document.getElementById('fam').addEventListener('click',e=>{
+ const em=document.getElementById('femail').value.trim(),er=document.getElementById('ferr');
+ if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){e.preventDefault();er.hidden=false;document.getElementById('femail').focus();return}
+ er.hidden=true;
+ try{navigator.sendBeacon(GS,new URLSearchParams({visit:k,email:em}))}catch(x){}
+});
 const none=()=>{document.getElementById('none').style.display='block'};
 (async()=>{
  if(!k)return none();
