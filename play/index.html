@@ -2201,5 +2201,25 @@ const f=s.querySelector('.rch')||s.firstElementChild;if(!f)return;const top=f.ge
 const need=vis?Math.max(0,Math.ceil(cr.bottom+8-top)):0;if(Math.abs(need-extra)>2){extra=need;st.textContent=extra?'.screen.on[data-name=trail]{padding-top:'+(10+extra)+'px!important}':''}}
 setInterval(fix,300)})();
 </script>
+<script>
+// Phones: the riddle screen had no way to move between chapters (the desktop bar with the chapter buttons is not built on phones).
+(function(){if(typeof riddle!=='function')return;const orig=riddle;
+function addNav(){if(matchMedia('(min-width:821px)').matches)return;const meta=document.querySelector('.screen[data-name=trail] .rmeta');if(!meta||meta.nextElementSibling&&meta.nextElementSibling.classList.contains('chnav'))return;
+ const ks=Object.keys(RIDDLES).map(Number).sort((a,b)=>a-b),k=ks.indexOf(rch);const row=document.createElement('div');row.className='chnav';
+ const mk=(d,lab)=>{const c=ks[k+d];const b=document.createElement('button');b.type='button';b.className='chnb';if(c==null){b.style.visibility='hidden';b.textContent='.';return b}b.textContent=lab.replace('N',c);b.onclick=()=>{if(window.chOK&&!window.chOK(c)){openPaywall('Chapter '+c+' is part of the full adventure.');return}try{WF=null}catch(e){}rch=c;ri=0;tries=0;riddle();if(typeof go==='function')go('trail')};return b};
+ const all=document.createElement('button');all.type='button';all.className='chnb';all.textContent='All chapters';all.onclick=()=>{const pb=document.getElementById('pickBtn')||[...document.querySelectorAll('button')].find(x=>/Pick a chapter/.test(x.textContent));if(pb)pb.click()};
+ row.append(mk(-1,'\u2039 Chapter N'),all,mk(1,'Chapter N \u203a'));meta.after(row)}
+riddle=function(){const r=orig.apply(this,arguments);try{addNav()}catch(e){}return r}})();
+</script>
+<style>.chnav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:2px 0 8px}.chnav .chnb{flex:0 1 auto;font:700 13px var(--body,system-ui);color:#f6d27a;background:rgba(10,12,36,.7);border:1px solid rgba(217,164,65,.55);border-radius:999px;padding:6px 12px;white-space:nowrap;cursor:pointer}@media (min-width:821px){.chnav{display:none}}
+/* Phones: the reveal (treasure) screen ran off the right edge and the treasure sat below the screen. Keep it all in view. */
+@media (max-width:600px){
+ body.rvopen #rvt{padding-left:84px!important;padding-right:10px!important;font-size:clamp(20px,6.2vw,26px)!important;line-height:1.15!important}
+ body.rvopen #rvt,body.rvopen #rvc{box-sizing:border-box!important;width:auto!important;max-width:calc(100vw - 20px)!important;margin-left:auto!important;margin-right:auto!important}
+ body.rvopen #rvc{font-size:1.05em!important;line-height:1.3!important}
+ body.rvopen #reveal #fp{max-width:min(44vw,180px)!important}
+ body.rvopen .treasure .tbox{width:min(40vw,160px)!important}
+}
+</style>
 </body>
 </html>
