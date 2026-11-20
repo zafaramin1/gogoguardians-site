@@ -9,7 +9,7 @@
   }
   function link() {
     // A partner who arrived through their own link (?p=KEY) shares with that key, so every share earns them credit.
-    try { var o = JSON.parse(localStorage.getItem('gogoPartner') || 'null'); if (o && o.k && Date.now() - o.t < 90 * 864e5) return URL_ + '?p=' + encodeURIComponent(o.k); } catch (e) {}
+    try { var o = JSON.parse(localStorage.getItem('gogoPartner') || 'null'); if (o && o.k && Date.now() - o.t < 60 * 864e5) return URL_ + '?p=' + encodeURIComponent(o.k); } catch (e) {}
     return URL_;
   }
   function share() {

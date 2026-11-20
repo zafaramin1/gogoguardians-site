@@ -1,14 +1,14 @@
 <!doctype html><html lang="en"><head><script src="/count.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Checkout - Gogo Guardians</title><meta name="robots" content="noindex">
 <script>
 // ONE place to set the store link. Every Buy button on the site and in the game comes here.
-// If a partner sent the buyer (?p=<Payhip affiliate key>, here or remembered from any page in the last 90 days),
+// If a partner sent the buyer (?p=<Payhip affiliate key>, here or remembered from any page in the last 60 days),
 // the buyer goes to that partner's Payhip link so the sale is credited to them.
 const STORE='https://payhip.com/b/cup6q';
 let key='';
 try{
   const q=new URLSearchParams(location.search).get('p');
   if(q&&/^[A-Za-z0-9_-]{3,40}$/.test(q)){key=q;localStorage.setItem('gogoPartner',JSON.stringify({k:q,t:Date.now()}));}
-  else{const s=JSON.parse(localStorage.getItem('gogoPartner')||'null');if(s&&Date.now()-s.t<90*864e5)key=s.k;}
+  else{const s=JSON.parse(localStorage.getItem('gogoPartner')||'null');if(s&&Date.now()-s.t<60*864e5)key=s.k;}
 }catch(e){}
 // No partner: straight to Payhip's checkout (skips the product page). Partner: keep Payhip's affiliate link so the sale is credited.
 const URL_=key?STORE+'/'+encodeURIComponent(key):'https://payhip.com/buy?link=cup6q';
