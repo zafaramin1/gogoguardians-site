@@ -1267,7 +1267,7 @@ function capType(text,u){lastSaid=text;capt.classList.remove('idle');if(CAPX){co
  if(u){u.onboundary=e=>{if(e.name&&e.name!=='word')return;show(text.slice(0,e.charIndex+1).split(' ').length)};u.onend=()=>{clearInterval(capTimer);show(words.length);capHide(4000)}}}
 const VEL=new Audio();VEL.preload='auto';let VAUD=null,VPRIMED=false;
 ['play','pause','ended'].forEach(ev=>VEL.addEventListener(ev,musicDuck));
-addEventListener('pointerdown',()=>{if(VPRIMED)return;VPRIMED=true;try{if(!VEL.src){VEL.muted=true;VEL.src='voice/v_gogo_yay3.mp3';VEL.play().then(()=>{VEL.pause();VEL.muted=false}).catch(()=>{VEL.muted=false})}}catch(e){}},{capture:true});
+addEventListener('pointerdown',()=>{if(VPRIMED)return;VPRIMED=true;try{if(!VEL.src){VEL.muted=true;VEL.src='voice/silence.mp3';VEL.play().then(()=>{VEL.pause();VEL.muted=false}).catch(()=>{VEL.muted=false})}}catch(e){}},{capture:true});
 
 const VPB=document.createElement('button');VPB.id='vpause';VPB.type='button';VPB.textContent='❚❚ Pause';document.body.append(VPB);let VPAUSED=false;
 function vpUI(){if(!VPB)return;const on=VEL.src&&!VEL.ended&&(!VEL.paused||VPAUSED);VPB.classList.toggle('show',!!on);VPB.textContent=VPAUSED?'▶ Play':'❚❚ Pause';VPB.setAttribute('aria-label',VPAUSED?'Play Gogo':'Pause Gogo')}
