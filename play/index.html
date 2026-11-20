@@ -2149,6 +2149,24 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
  body.rvopen #rvt{padding-left:92px;padding-right:92px;box-sizing:border-box}
  body.rvopen #vpause{display:none!important}
 }
+
+/* Paywall: these rules were only inside the desktop media block, so phones got an unstyled panel below the screen. Apply everywhere. */
+#paywall{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:rgba(3,4,14,.78);padding:16px}
+#paywall .pwbox{position:relative;max-width:460px;width:100%;max-height:calc(100vh - 32px);overflow:auto;text-align:center;padding:22px 24px;border-radius:18px;background:linear-gradient(#1c1408,#0c0803);border:1.5px solid #d9a441;box-shadow:0 20px 60px #000;color:#f3e3bd;font:15px/1.5 system-ui,sans-serif}
+#paywall .pwx{position:absolute;top:8px;right:12px;background:none;border:0;color:#f6d27a;font-size:26px;cursor:pointer}
+#paywall .pwgogo{width:84px;height:84px;object-fit:cover;border-radius:50%;border:2px solid #d9a441}
+#paywall h3{font:700 26px 'Cinzel',Georgia,serif;margin:8px 0 4px}
+#paywall .pwwhy{font-family:'Fondamento',cursive;font-style:italic;letter-spacing:.04em;font-size:19px;font-weight:400;color:#ffe9b0;margin:4px 0 8px}
+#paywall ul{text-align:left;margin:6px auto 10px;max-width:340px;padding-left:20px}
+#paywall .pwprice{font-size:20px;color:#f6d27a;margin:6px 0 10px}
+#paywall .pwprice s{color:#a8987a;font-size:16px}
+#paywall .pwbuy{display:inline-block;text-decoration:none}
+#paywall .pwnote{font-size:13px;color:#c9b98f;margin:10px 0 6px}
+#paywall .pwcode{display:flex;gap:8px;justify-content:center}
+#paywall .pwcode input{flex:1;max-width:200px;padding:9px 12px;border-radius:10px;border:1px solid #9a6a1c;background:#0a0d24;color:#f3e3bd;font:700 15px system-ui;text-transform:uppercase}
+#paywall .pwmsg{color:#ff9aa5;min-height:1.2em;font-size:13px;margin:6px 0 0}
+#paywall .pwbox{max-height:calc(100dvh - 32px);-webkit-overflow-scrolling:touch}
+@media (max-width:600px){#paywall{padding:10px}#paywall .pwbox{padding:18px 16px}#paywall .pwgogo{width:68px;height:68px}#paywall h3{font-size:22px}#paywall .pwwhy{font-size:17px}#paywall ul{font-size:15px}}
 </style>
 <button id="ggHome" type="button" aria-label="Game home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Home</button>
 <script>
