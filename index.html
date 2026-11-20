@@ -144,6 +144,10 @@ a.card h3::after{content:" \203a"}
 .rc-link{display:block;position:relative;text-decoration:none}.rc-link iframe{pointer-events:none}.rc-tap{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:2;white-space:nowrap;padding:8px 14px;border-radius:999px;background:linear-gradient(#f3cf78,#a86e1e);color:#1e1202;font:800 13px system-ui,sans-serif;box-shadow:0 4px 14px #000a}
 @media(max-width:700px){a.note{font-size:0;width:42px;height:42px;padding:0;border-radius:50%;left:max(8px,env(safe-area-inset-left,0px));bottom:max(8px,env(safe-area-inset-bottom,0px));display:grid;place-items:center}a.note::before{content:"\270E";font-size:19px}}
 .hero2{display:inline-block;padding:11px 18px;border-radius:999px;border:1.5px solid var(--gold-hi,#f6d27a);color:var(--gold-hi,#f6d27a);font:800 15px system-ui,sans-serif;text-decoration:none}
+
+.navlinks{display:flex;gap:18px;align-items:center}
+.navbuy{padding:9px 18px;font-size:15px}
+@media (max-width:600px){nav .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 8px}nav .brand{order:1;font-size:20px!important}nav .navbuy{order:2;padding:7px 13px!important;font-size:13px!important}nav .navlinks{order:3;flex:1 0 100%;justify-content:space-between;gap:0;border-top:1px solid #3a2a0c;padding-top:9px}nav .navlinks a.l{font-size:13px!important;order:0}}
 </style>
 <style>.ages{font:700 17px system-ui,sans-serif;color:#9fe8c6;letter-spacing:.04em;margin:2px 0 10px}.buywrap{display:inline-flex;align-items:center;gap:8px}.bounce{display:inline-block;font:900 30px system-ui;color:#f6d27a;animation:ggb 0.9s ease-in-out infinite}@keyframes ggb{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}.privnote{color:#c9b98f;font:14px system-ui,sans-serif;margin-top:8px}</style>
 </head>
@@ -151,8 +155,8 @@ a.card h3::after{content:" \203a"}
 
 <nav><div class="wrap">
   <a class="brand gold" href="/">Gogo Guardians</a>
-  <a class="l" href="/read/">Read free</a><a class="l" href="/play/">Play free</a><a class="l" href="/schools/">For schools</a><a class="l" href="/partners/">Partners</a>
-  <a class="btn" href="/checkout/" style="padding:9px 18px;font-size:15px">Get it &middot; $14.95</a>
+  <span class="navlinks"><a class="l" href="/read/">Read free</a><a class="l" href="/play/">Play free</a><a class="l" href="/schools/">For schools</a><a class="l" href="/partners/">Partners</a></span>
+  <a class="btn navbuy" href="/checkout/">Get it &middot; $14.95</a>
 </div></nav>
 
 <main>
