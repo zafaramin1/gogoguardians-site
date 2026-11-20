@@ -2050,7 +2050,7 @@ const start=idx((location.hash||'').slice(1));go(start>=0?start:0,true);if(start
   <div class="ctitle">Gogo Guardians</div>
   <div class="cguards"><figure><img src="img/m_oliver.jpg" alt=""><figcaption>Oliver</figcaption></figure><figure><img src="img/m_jack.jpg" alt=""><figcaption>Jack</figcaption></figure><figure><img src="img/m_leah.jpg" alt=""><figcaption>Leah</figcaption></figure><figure><img src="img/m_gogo.jpg" alt=""><figcaption>Gogo</figcaption></figure></div>
   <div class="cline">This certifies that</div>
-  <input id="certName" class="cname" maxlength="28" placeholder="Your Guardian name" aria-label="Your Guardian name" autocomplete="off">
+  <input id="certName" class="cname" maxlength="28" placeholder="Type your name" aria-label="Your name" autocomplete="off" autocapitalize="words" spellcheck="false" name="gg-cert-name-nosave">
   <div class="cline">has joined the Guardians of the Emerald and collected</div>
   <div class="cgems"><svg class="cgem" aria-hidden="true"><use href="#gem"/></svg><span id="certGems">0</span> emeralds</div>
   <div class="cline" id="certUn"></div>
@@ -2058,6 +2058,7 @@ const start=idx((location.hash||'').slice(1));go(start>=0?start:0,true);if(start
   <button type="button" class="cbook" id="certBook"><img src="img/cover5.jpg" alt=""><div>Continue the adventure in the book:<b>Gogo Guardians</b>gogoguardians.com</div></button>
  </div>
  <div class="certbtns"><button class="btn big" type="button" id="certPrint">Print it</button><button class="btn ghost" type="button" id="certClose">Close</button></div>
+ <p class="cnote">Your name stays on this screen. It is never saved and never sent to anyone.</p>
 </div></div>
 <style id="certcss">
 #certBtn[hidden]{display:none}
@@ -2071,6 +2072,8 @@ const start=idx((location.hash||'').slice(1));go(start>=0?start:0,true);if(start
 .cline{font-size:clamp(12px,2vw,16px)}
 .cname{font-family:var(--deco);font-size:clamp(20px,4.2vw,36px);text-align:center;color:#1f5a3c;background:transparent;border:0;border-bottom:2px solid #b9862c;width:80%;outline:none;padding:2px}
 .cname::placeholder{color:#b9a27a}
+.cnote{margin:10px auto 0;max-width:520px;text-align:center;font-size:13px;color:#d8cba8;opacity:.85}
+@media print{.cnote{display:none}}
 .cstamps{position:absolute;top:50%;transform:translateY(-50%);display:grid;gap:14px}.cstamps.l{left:2.5%}.cstamps.r{right:2.5%}@media (min-width:701px){.certcard{padding-left:13%!important;padding-right:13%!important}}.cstamps figure{margin:0;display:grid;justify-items:center;gap:1px;transform:rotate(-8deg)}.cstamps figure:nth-child(even){transform:rotate(7deg)}.cstamps img{width:clamp(28px,5vw,44px);height:clamp(28px,5vw,44px);border-radius:50%;object-fit:cover;border:2px dashed #b9862c;outline:2px solid #d9a441;outline-offset:1px;filter:sepia(.15) saturate(1.1)}@media (max-width:700px){.cstamps{position:static;transform:none;display:flex;justify-content:center;order:9}.csign,.cbook{order:10}}.cstamps figcaption{font:700 clamp(7px,1.1vw,9px) var(--display);color:#8a5a14;text-transform:uppercase;letter-spacing:.04em}
 .cguards{display:flex;gap:clamp(8px,2.2vw,20px);justify-content:center}.cguards figure{margin:0;display:grid;justify-items:center;gap:2px}.cguards img{width:clamp(40px,7.5vw,66px);height:clamp(40px,7.5vw,66px);border-radius:50%;object-fit:cover;object-position:50% 22%;border:2px solid #d9a441;box-shadow:0 2px 6px rgba(0,0,0,.3)}.cguards figcaption{font:700 clamp(9px,1.5vw,12px) var(--display);color:#7a4a10}
 .cgem{width:1.25em;height:1.25em;vertical-align:-.25em;margin-right:.3em;filter:drop-shadow(0 0 6px #3dffa0) drop-shadow(0 1px 2px rgba(0,0,0,.4))}
@@ -2093,11 +2096,10 @@ const start=idx((location.hash||'').slice(1));go(start>=0?start:0,true);if(start
  window.openCert=function(){document.getElementById('certGems').textContent=gems;const u=UN.filter(x=>gems>=x[0]).map(x=>x[1]);
   {const SI={15:['img/m_elder.jpg','Elderstone'],30:['img/p037.jpg','Zolara'],50:['img/p071.jpg','Raptor'],80:['img/p080.jpg','Emerald Moon']};const cs0=document.getElementById('certStamps'),cs1=document.getElementById('certStampsR');cs0.innerHTML='';cs1.innerHTML='';UN.filter(x=>gems>=x[0]).forEach((x,ix)=>{const cs=ix<2?cs0:cs1;const f_=document.createElement('figure');const im=document.createElement('img');im.src=SI[x[0]][0];im.alt='';const c_=document.createElement('figcaption');c_.textContent=SI[x[0]][1];f_.append(im,c_);cs.append(f_)})}document.getElementById('certUn').textContent=u.length?('and unlocked '+(u.length>1?u.slice(0,-1).join(', ')+' and '+u[u.length-1]:u[0])+'.'):'on the way to the Elderstone card.';
   document.getElementById('certDate').textContent=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
-  N.value=ls('gg_name')||'';C.hidden=false;if(typeof stopVoice==='function')stopVoice();
+  N.value='';try{localStorage.removeItem('gg_name')}catch(e){}C.hidden=false;if(typeof stopVoice==='function')stopVoice();
   if(typeof say==='function')say('Here is your Guardian certificate. Type your Guardian name, then print it and hang it on your wall.','voice/v_cert1.mp3');if(!N.value)setTimeout(()=>N.focus(),300)};
- N.addEventListener('input',()=>ls('gg_name',N.value));
- B.onclick=openCert;document.getElementById('certClose').onclick=()=>{C.hidden=true;if(typeof stopVoice==='function')stopVoice()};
- document.getElementById('certPrint').onclick=()=>{if(!N.value.trim()){N.focus();N.placeholder='Type your Guardian name first';return}window.print()};
+  B.onclick=openCert;document.getElementById('certClose').onclick=()=>{C.hidden=true;if(typeof stopVoice==='function')stopVoice()};
+ document.getElementById('certPrint').onclick=()=>{if(!N.value.trim()){N.focus();N.placeholder='Type your name first';return}window.print()};
  document.getElementById('certBook').onclick=()=>{C.hidden=true;if(typeof BOOK!=='undefined'&&BOOK.open)BOOK.open(1);setTimeout(()=>{if(typeof say==='function')say('Want to know what happens next? Read the whole adventure in the book, Gogo the Magic Phone.','voice/v_book1.mp3')},600)};
  const _cr=window.closeRv;window.closeRv=function(){const t=(document.getElementById('rvt')||{}).textContent||'';_cr.apply(this,arguments);
   if(/Emerald Moon/.test(t)&&/^Unlocked/.test(t)&&!ls('gg_cert80')){ls('gg_cert80','1');setTimeout(openCert,700)}};
