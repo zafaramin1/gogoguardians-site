@@ -139,7 +139,7 @@ a.card h3::after{content:" \203a"}
 .candlebox .wick{position:absolute;width:63.1px;left:17.8px;top:83.2px}
 .candlebox .cflame{position:absolute;width:120px;height:130px;left:-10.5px;top:-25px;pointer-events:none}
 @media(max-width:700px){footer{padding-bottom:96px}}
-@media(max-width:700px){.mpill{right:max(8px,env(safe-area-inset-right,0px));bottom:max(8px,env(safe-area-inset-bottom,0px))}.mpbtn{width:42px;height:42px;padding:0;justify-content:center;border-radius:50%;font-size:18px}.mptx{display:none}}
+@media(max-width:700px){.mpill{right:max(8px,env(safe-area-inset-right,0px));bottom:max(8px,env(safe-area-inset-bottom,0px))}.mpbtn{width:42px;height:42px;padding:0;justify-content:center;border-radius:50%;font-size:18px}.mptx{display:none}.mpill.on .mpname{display:none}}
 .rc-link{display:block;position:relative;text-decoration:none}.rc-link iframe{pointer-events:none}.rc-tap{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:2;white-space:nowrap;padding:8px 14px;border-radius:999px;background:linear-gradient(#f3cf78,#a86e1e);color:#1e1202;font:800 13px system-ui,sans-serif;box-shadow:0 4px 14px #000a}
 @media(max-width:700px){a.note{font-size:0;width:42px;height:42px;padding:0;border-radius:50%;left:max(8px,env(safe-area-inset-left,0px));bottom:max(8px,env(safe-area-inset-bottom,0px));display:grid;place-items:center}a.note::before{content:"\270E";font-size:19px}}
 .hero2{display:inline-block;padding:11px 18px;border-radius:999px;border:1.5px solid var(--gold-hi,#f6d27a);color:var(--gold-hi,#f6d27a);font:800 15px system-ui,sans-serif;text-decoration:none}
@@ -290,10 +290,10 @@ a.card h3::after{content:" \203a"}
   requestAnimationFrame(draw)})(0)})();
 </script>
 <script src="/comments.js" defer></script>
-<script src="/partner.js"></script><script src="/fam.js?v=7"></script><style>@media(max-width:700px){body.buyvis a.note,body.buyvis .mpill{opacity:0;pointer-events:none;transition:opacity .2s}}
+<script src="/partner.js"></script><script src="/fam.js?v=8"></script><style>@media(max-width:700px){body.buyvis a.note,body.buyvis .mpill:not(.on){opacity:0;pointer-events:none;transition:opacity .2s}}
 @media(max-width:560px){.skills{grid-template-columns:1fr!important}}.skill b{overflow-wrap:anywhere;hyphens:auto}
 </style>
 <script>/* Phones: hide the floating note and music buttons while a Buy button is on screen, so they never cover it. */
-(function(){if(!('IntersectionObserver' in window))return;var seen=new Set();var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?seen.add(e.target):seen.delete(e.target)});document.body.classList.toggle('buyvis',seen.size>0)});document.querySelectorAll('a[href^="/checkout/"]').forEach(function(a){io.observe(a)})})();</script>
+(function(){if(!('IntersectionObserver' in window))return;var seen=new Set();var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?seen.add(e.target):seen.delete(e.target)});document.body.classList.toggle('buyvis',seen.size>0)});document.querySelectorAll('a[href^="/checkout/"]:not(.navbuy)').forEach(function(a){io.observe(a)})})();</script>
 <script src="/share.js" defer></script></body>
 </html>

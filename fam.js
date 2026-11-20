@@ -8,11 +8,11 @@ let si=0,playing=false,AT=0;const au=new Audio();au.preload='none';au.setAttribu
 au.addEventListener('ended',()=>{si=(si+1)%SONGS.length;load();au.play().catch(()=>{})});
 function load(){au.src='/play/sfx/'+SONGS[si][0]+'.mp3';if(lbl)lbl.textContent=SONGS[si][1]}
 const pill=document.createElement('div');pill.className='mpill';pill.innerHTML='<button class="mpbtn" aria-pressed="false" aria-label="Play the music"><span class="mpic">&#9835;</span><span class="mptx">Play the music</span></button><span class="mpname"></span>';
-document.body.appendChild(pill);const btn=pill.querySelector('.mpbtn'),tx=pill.querySelector('.mptx'),lbl=pill.querySelector('.mpname');
+document.body.appendChild(pill);const btn=pill.querySelector('.mpbtn'),tx=pill.querySelector('.mptx'),lbl=pill.querySelector('.mpname'),ic=pill.querySelector('.mpic');
 pill.addEventListener('contextmenu',e=>e.preventDefault());
-function setPlay(on){playing=on;btn.setAttribute('aria-pressed',on);pill.classList.toggle('on',on);tx.textContent=on?'Music on':'Play the music';if(on){if(!au.src)load();au.play().catch(()=>{setPlay(false)})}else au.pause()}
+function setPlay(on){playing=on;btn.setAttribute('aria-pressed',on);btn.setAttribute('aria-label',on?'Stop the music':'Play the music');pill.classList.toggle('on',on);tx.textContent=on?'Stop music':'Play the music';ic.innerHTML=on?'&#9632;':'&#9835;';document.querySelectorAll('.famplay').forEach(b=>{if(!b.dataset.t)b.dataset.t=b.innerHTML;b.innerHTML=on?'&#9632; stop the music':b.dataset.t});if(on){if(!au.src)load();au.play().catch(()=>{setPlay(false)})}else au.pause()}
 btn.addEventListener('click',()=>setPlay(!playing));
-window.__famMusic=()=>{if(!playing)setPlay(true)};
+window.__famMusic=()=>setPlay(!playing);
 if(!stage)return;
 // ---------- dancers ----------
 const W=48,H=58,SC=2,dpr=Math.min(2,devicePixelRatio||1);
