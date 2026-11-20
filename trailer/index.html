@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><script src="/count.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gogo Guardians - Watch the trailer</title>
+<meta name="description" content="Long ago, a magic phone chose a boy. Gogo Guardians: an illustrated adventure and riddle game for ages 8 to 12. Read 3 chapters free.">
+<meta property="og:title" content="Gogo Guardians - Watch the trailer">
+<meta property="og:description" content="An illustrated adventure and riddle game for ages 8 to 12. Read 3 chapters free.">
+<meta property="og:image" content="https://gogoguardians.com/promo/trailer-film.jpg">
+<meta property="og:type" content="video.other">
+<style>
+:root{--gold:#f6d27a;--ink:#07091e;--text:#f3e3bd;--muted:#c9b98f}
+*{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--text);font:17px/1.55 Georgia,serif;text-align:center}
+.wrap{max-width:900px;margin:0 auto;padding:28px 16px 40px}
+h1{color:var(--gold);font-size:clamp(28px,6vw,44px);margin:0 0 6px;letter-spacing:.02em}
+.sub{color:var(--muted);margin:0 0 18px}
+video{width:100%;border-radius:14px;background:#000;box-shadow:0 10px 40px rgba(0,0,0,.5);display:block}
+.row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;font:800 18px system-ui,sans-serif;text-decoration:none}
+.buy{background:linear-gradient(#3ee0a4,#159a6c);color:#06281b}
+.ghost{border:1.5px solid var(--gold);color:var(--gold)}
+.note{color:var(--muted);font-size:14px;margin-top:16px}
+a{color:var(--gold)}
+</style></head>
+<body><div class="wrap">
+<h1>Gogo Guardians</h1>
+<p class="sub">Long ago, a magic phone chose a boy. An illustrated adventure and riddle game for ages 8 to 12.</p>
+<video controls playsinline preload="metadata" poster="/promo/trailer-film.jpg"><source src="/promo/trailer-film.mp4" type="video/mp4"></video>
+<div class="row">
+  <a class="btn buy" id="buy" href="/checkout/">Get the complete adventure · $14.95</a>
+  <a class="btn ghost" href="/read/">Read 3 chapters free</a>
+</div>
+<p class="note">For parents and guardians. Kids never make an account, and we collect nothing from children. <a href="/privacy/">Privacy for families</a></p>
+<p class="note"><a href="/">gogoguardians.com</a></p>
+</div>
+<script src="/partner.js"></script>
+<script>
+// keep the partner key on the Buy button too, in case storage is blocked
+try{var k=new URLSearchParams(location.search).get('p');if(k&&/^[A-Za-z0-9_-]{3,40}$/.test(k))document.getElementById('buy').href='/checkout/?p='+encodeURIComponent(k);}catch(e){}
+</script>
+</body></html>

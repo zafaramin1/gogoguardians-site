@@ -1,0 +1,43 @@
+/* Parchment scrolls: tap a question, the wax seal breaks and the scroll unrolls. One open at a time per group. */
+.scrolls{display:flex;flex-direction:column;gap:44px;margin:30px 0 14px}
+.scrolls-title{font:700 17px 'Cinzel',Georgia,serif;color:var(--gold-hi,#f6d27a);letter-spacing:.06em;margin:30px 0 -6px;text-transform:uppercase}
+.scroll{position:relative;margin:0 22px}
+/* rods: small wooden ends at both sides of the top and bottom edge */
+.scroll .rod{position:absolute;left:-8px;right:-8px;height:9px;border-radius:5px;z-index:2;pointer-events:none;
+ background:linear-gradient(#6b3d1a,#3b1f0b 55%,#1f0f04);box-shadow:0 2px 4px rgba(0,0,0,.6)}
+.scroll .rod:before,.scroll .rod:after{content:"";position:absolute;top:-3px;width:9px;height:15px;border-radius:4px;
+ background:radial-gradient(circle at 40% 35%,#f6d27a,#b8862b 55%,#6e4a10)}
+.scroll .rod:before{left:-4px}.scroll .rod:after{right:-4px}
+.scroll .rod.top{top:-4px}.scroll .rod.bot{bottom:-4px}
+.scroll .sheet{position:relative;border-radius:3px;color:#3b2610;
+ background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.35),transparent 60%),
+  radial-gradient(ellipse at 10% 90%,rgba(140,90,30,.18),transparent 50%),
+  linear-gradient(90deg,#d9bf86,#f1e0b4 12%,#f6e8c3 50%,#f1e0b4 88%,#d9bf86);
+ box-shadow:inset 0 0 18px rgba(120,80,20,.25),0 10px 24px rgba(0,0,0,.45)}
+.scroll .q{all:unset;box-sizing:border-box;position:relative;display:flex;align-items:center;gap:14px;width:100%;min-height:62px;padding:18px 64px 16px 24px;
+ cursor:pointer;font:700 17px/1.35 'Cinzel',Georgia,serif;color:#4a2c0e;-webkit-tap-highlight-color:transparent}
+.scroll .q:focus-visible{outline:2px solid #b8862b;outline-offset:4px;border-radius:3px}
+/* wax seal */
+.scroll .seal{position:absolute;right:16px;top:50%;width:34px;height:34px;margin-top:-17px;transition:transform .5s ease}
+.scroll .seal i{position:absolute;inset:0;border-radius:50%;
+ background:url(/img/pose_happy.jpg) 50% 28%/170% no-repeat,radial-gradient(circle at 35% 30%,#f6d27a,#b8862b 60%,#6e4a10);
+ box-shadow:0 2px 4px rgba(0,0,0,.45),0 0 0 2px #d9a441,inset 0 0 0 2px rgba(246,210,122,.6);
+ transition:transform .55s cubic-bezier(.3,1.4,.5,1),opacity .55s ease}
+.scroll .seal i:after{content:"";display:none;position:absolute;inset:0;display:grid;place-items:center;font:700 16px 'Cinzel',Georgia,serif;color:rgba(255,220,200,.55);text-shadow:0 -1px 0 rgba(0,0,0,.35)}
+.scroll .seal i:first-child{clip-path:polygon(0 0,55% 0,42% 38%,58% 62%,45% 100%,0 100%)}
+.scroll .seal i:last-child{clip-path:polygon(55% 0,100% 0,100% 100%,45% 100%,58% 62%,42% 38%)}
+.scroll.open .seal i:first-child{transform:translate(-7px,2px) rotate(-22deg);opacity:.35}
+.scroll.open .seal i:last-child{transform:translate(7px,3px) rotate(18deg);opacity:.35}
+/* the unrolling answer */
+.scroll .a{overflow:hidden;height:0;transition:height .55s cubic-bezier(.4,0,.2,1)}
+.scroll .a>div{padding:2px 24px 26px;font:16.5px/1.65 Georgia,'Times New Roman',serif;color:#3b2610;border-top:1px dashed rgba(110,68,25,.35);margin:0 14px}
+.scroll .a>div p{margin:14px 0 0}.scroll .a>div p:first-child{margin-top:16px}
+.scroll .a a{color:#7a3d0a;font-weight:700}
+.scroll .a>div ul,.scroll .a>div ol{margin:14px 0 0;padding-left:20px}.scroll .a>div li{margin:6px 0}
+.scroll.open .rod.bot{box-shadow:0 4px 8px rgba(0,0,0,.55)}
+/* no JS: everything stays readable */
+.scrolls:not(.ready) .a{height:auto}
+.scrolls:not(.ready) .seal{display:none}
+@media(prefers-reduced-motion:reduce){.scroll .a,.scroll .seal,.scroll .seal i{transition:none}}
+@media(max-width:600px){.scrolls{gap:38px}.scroll{margin:0 16px}.scroll .q{font-size:16px;padding:15px 56px 13px 18px}.scroll .a>div{padding:2px 16px 22px;margin:0 6px}}
+@media print{.scroll .a{height:auto!important}.scroll .seal,.scroll .rod{display:none}.scroll .sheet{box-shadow:none;background:#fff;border:1px solid #999}}

@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><script src="/count.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Welcome, Guardian - Gogo Guardians</title><meta name="robots" content="noindex">
+<style>
+:root{--bg:#07091e;--ink:#f3e3bd;--gold:#f6d27a;--muted:#b3a487}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 50% 0%,#1d2150,#07091e 70%);color:var(--ink);font:17px/1.6 Georgia,serif;text-align:center;padding:24px 16px}
+.box{max-width:480px;width:100%}
+img{width:150px;height:auto;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+h1{color:var(--gold);font-size:34px;line-height:1.15;margin:16px 0 6px}
+.code{display:inline-block;font:800 26px system-ui,sans-serif;letter-spacing:.08em;color:var(--gold);border:2px dashed rgba(246,210,122,.6);border-radius:12px;padding:10px 18px;margin:8px 0}
+.msg{min-height:1.4em;margin:12px 0;font:15px system-ui,sans-serif}
+.err{color:#ff9aa5}
+.btns{display:grid;gap:12px;margin-top:10px}
+.btn{display:block;background:#d4a537;color:#0d172b;font:800 18px system-ui,sans-serif;padding:15px 20px;border-radius:12px;text-decoration:none}
+.btn.alt{background:transparent;color:var(--gold);border:1.5px solid #d4a537}
+.small{color:var(--muted);font:13px/1.5 system-ui,sans-serif;margin-top:20px}.small a{color:var(--gold)}
+</style></head>
+<body><div class="box">
+<img src="/promo/cover.jpg" alt="Gogo Guardians book cover" width="1000" height="1600">
+<h1>Welcome, Guardian!</h1>
+<p id="lead">Getting your unlock code...</p>
+<div id="codewrap" hidden><span class="code" id="code"></span><p class="small" style="margin-top:4px">Your personal code. It works on up to 3 of your family's devices.</p></div>
+<p class="msg" id="msg" aria-live="polite"></p>
+<div class="btns" id="go" hidden>
+<a class="btn" href="/read/">Read the book</a>
+<a class="btn alt" href="/play/">Play the riddle game</a>
+</div>
+<p class="small">Not right for your family? Email us within 7 days for a full refund: <a href="mailto:admin@iddas.tech">admin@iddas.tech</a></p>
+</div>
+<script>
+const GS='https://script.google.com/macros/s/AKfycbwqA1VJG6I0bxBLmsr0cd_okIm-n9G5QW_BHgnLbP3xryLFGm_Zb5sAnifrgrNFGIWGjg/exec';
+const $=id=>document.getElementById(id);
+const sid=new URLSearchParams(location.search).get('s')||'';
+function dev(){try{let d=localStorage.getItem('gg_dev');if(!d){d=(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now());localStorage.setItem('gg_dev',d)}return d}catch(e){return 'x'+Date.now()}}
+async function claim(n){
+ let j;try{j=await fetch(GS+'?stripe=claim&s='+encodeURIComponent(sid)).then(r=>r.json())}catch(e){j={ok:false,why:'net'}}
+ if(!j.ok&&n<6){setTimeout(()=>claim(n+1),2500);return}
+ if(!j.ok){$('lead').textContent='Thank you for your order!';$('msg').className='msg err';$('msg').textContent='Your code is on its way by email. If it does not arrive in 15 minutes, write to admin@iddas.tech and we will help.';return}
+ $('lead').textContent='Thank you! Here is your unlock code:';$('code').textContent=j.code;$('codewrap').hidden=false;
+ $('msg').textContent=j.email?'We also emailed it to '+j.email+'.':'';
+ // Open it on this device right away.
+ try{const u=await fetch(GS+'?unlock='+encodeURIComponent(j.code)+'&dev='+encodeURIComponent(dev())).then(r=>r.json());if(u.ok){localStorage.setItem('gg_key',j.code);localStorage.setItem('gg_paid','1')}}catch(e){}
+ $('go').hidden=false;
+}
+if(/^cs_(test|live)_[A-Za-z0-9]+$/.test(sid))claim(0);else{$('lead').textContent='Thank you!';$('msg').textContent='If you just paid, your code is in your email.'}
+</script>
+</body></html>

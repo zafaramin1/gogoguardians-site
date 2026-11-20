@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head><script src="/count.js"></script><meta name="robots" content="noindex">
+<!-- Google tag (parent pages only, never in /play or /read) -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MNTJVC2R"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18574869728');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18574869728"></script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gogo Guardians</title>
+<meta name="description" content="A magic phone, Alibaba and the Forty Thieves, and riddles only a Guardian can solve. Read the book and play the game.">
+<link rel="icon" href="/img/pose_happy.jpg">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+/* One page: hero, play, the book, parents and teachers, the author. Black and navy paper with aged gold. */
+:root{--bg:#000;--navy:#0b1030;--ink:#f1ead6;--muted:#c3b9a0;--gold:#d9a441;--gold-hi:#f6d27a;--gold-deep:#8a5a14;--emerald:#36c287;
+ --display:"Cinzel",Georgia,serif;--deco:"Cinzel Decorative","Cinzel",Georgia,serif;--body:"Nunito",system-ui,sans-serif;
+ --gold-grad:linear-gradient(180deg,#fffbe6 0%,#ffe08a 18%,#e9b04a 36%,#b9781e 48%,#fff1b8 56%,#f2c766 66%,#a8691a 84%,#e8b54a 100%);
+ --paper:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .85  0 0 0 0 .75  0 0 0 0 .5  0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+ color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper),radial-gradient(120% 70% at 50% 0%,#0e1440 0%,#05071a 45%,#000 100%) fixed;color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,p{margin:0}
+.gold{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 #1e1102) drop-shadow(0 0 14px rgba(255,200,80,.35))}
+nav{position:sticky;top:0;z-index:10;background:linear-gradient(#000,#000d);backdrop-filter:blur(6px);border-bottom:1px solid #3a2a0c}
+nav .wrap{display:flex;align-items:center;gap:18px;padding-block:10px;flex-wrap:wrap}
+nav .brand{font:900 20px var(--deco);text-decoration:none;margin-right:auto}
+nav a.l{color:var(--muted);text-decoration:none;font-weight:700;font-size:15px}
+nav a.l:hover{color:var(--gold-hi)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:800 18px var(--body);color:#1e1202;text-decoration:none;border-radius:14px;padding:14px 26px;border:1px solid #4a300a;background:linear-gradient(180deg,#f3cf78 0%,#d29a3a 40%,#a86e1e 70%,#7a4c10 100%);box-shadow:inset 0 1px 0 #fff3c499,0 6px 18px #000a}
+.btn.ghost{background:transparent;color:var(--gold-hi);border-color:#8a5a14;box-shadow:none}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--emerald);outline-offset:3px}
+section{padding-block:72px}
+.eyebrow{font:800 13px var(--body);letter-spacing:.18em;text-transform:uppercase;color:#2fae78}
+.hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center;padding-block:48px 72px}
+.hero .cover{position:relative;justify-self:center;max-width:400px;width:100%}
+.hero .cover img{width:100%;display:block;border-radius:4px 10px 10px 4px;box-shadow:-10px 0 0 -4px #3a2306,0 30px 70px #000,0 0 60px #d9a44133}
+@media (prefers-reduced-motion:no-preference){.hero .cover img{animation:fly 6s ease-in-out infinite}@keyframes fly{50%{transform:translateY(-12px) rotate(.6deg)}}}
+.hero h1{font:900 clamp(44px,7vw,84px)/0.98 var(--deco);text-wrap:balance}
+.hero .orn{color:var(--gold);letter-spacing:.4em;margin:14px 0}
+.hero h1{position:relative;z-index:1}
+.hero .fire{position:relative;height:120px;max-width:470px;margin:-78px 0 0;pointer-events:none}
+.hero .fire video{width:100%;height:100%;object-fit:cover;mix-blend-mode:screen;opacity:.7;-webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent),linear-gradient(0deg,transparent 2%,#000 30%,#000 55%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent),linear-gradient(0deg,transparent 2%,#000 30%,#000 55%,transparent);mask-composite:intersect}
+@media (prefers-reduced-motion:reduce){.hero .fire{display:none}}
+.getbox{margin:18px 0 6px;padding:14px 18px;border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(246,210,122,.08),transparent)}.getbox ul{margin:8px 0 0;padding-left:20px;color:var(--muted);line-height:1.55}.getbox li b{color:var(--gold-hi)}
+.hero .lead{font-size:20px;color:var(--muted);max-width:32em}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:24px}
+.hero .cover img.gogo{position:absolute;right:-40px;bottom:-30px;width:130px;border-radius:0;box-shadow:none;animation:bob 2.4s ease-in-out infinite;-webkit-mask-image:radial-gradient(#000 58%,transparent 72%);mask-image:radial-gradient(#000 58%,transparent 72%)}
+@media (prefers-reduced-motion:no-preference){.hero .gogo{animation:bob 2.4s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-8px) rotate(4deg)}}}
+h2{font:800 clamp(30px,4.4vw,46px)/1.1 var(--display);text-wrap:balance;margin:10px 0 18px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px}
+.card{display:grid;gap:10px;align-content:start}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;-webkit-mask-image:radial-gradient(ellipse 75% 72% at 50% 50%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 75% 72% at 50% 50%,#000 60%,transparent 100%)}
+.card h3{font:800 20px var(--display);color:var(--gold-hi)}
+.card p{color:var(--muted);font-size:16px}
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}@media (min-width:821px){.book>.lock{margin-top:96px}}
+.quote{font-style:italic;color:#ffeec4;border-left:3px solid var(--gold);padding-left:16px;margin:18px 0}
+.price{font:800 40px var(--display);color:var(--gold-hi)}
+.price small{font:600 16px var(--body);color:var(--muted)}
+.soon{display:inline-block;font:800 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:#1e1202;background:var(--gold-hi);border-radius:999px;padding:3px 10px;margin-left:8px;vertical-align:middle}
+.lock{position:relative;border-radius:14px;overflow:hidden}
+.lock img{display:block;width:100%;filter:brightness(.55) saturate(.7)}
+.lock .door{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px}
+.lock .door b{font:900 26px var(--deco)}
+.panel{border:1px solid #6a4e1c;border-radius:16px;padding:28px;background:linear-gradient(180deg,#0e1338cc,#05071acc)}
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:20px}
+.skill{display:grid;gap:4px}
+.skill b{color:var(--gold-hi);font-family:var(--display)}
+.skill span{color:var(--muted);font-size:15px}
+.candle{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:center}
+.flame{width:84px;height:110px;border-radius:50% 50% 45% 45%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff8d0,#f6d27a 30%,#d97a1a 60%,transparent 72%);filter:blur(1px)}
+@media (prefers-reduced-motion:no-preference){.flame{animation:flick 1.6s ease-in-out infinite alternate}@keyframes flick{to{transform:scaleY(1.08) translateY(-3px);opacity:.85}}}
+.author{display:grid;grid-template-columns:minmax(0,1fr);max-width:760px}
+footer{border-top:1px solid #3a2a0c;padding-block:28px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+.note{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:20;font:800 14px var(--body);color:#1e1202;background:linear-gradient(#f3cf78,#a86e1e);padding:9px 14px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px #000a}
+@media (max-width:820px){.hero,.book{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}.hero .cover img.gogo{right:-10px;width:96px}nav .wrap{gap:6px 14px}nav a.l{order:3;font-size:14px}section{padding-block:52px}.candle{grid-template-columns:1fr}}
+
+/* parents and teachers: dark, calm, serious */
+#parents .panel{background:#0c1124;color:#d9dbe3;border:1px solid #2a3150;border-radius:8px;box-shadow:none}
+#parents .eyebrow{color:#8f97ab}
+#parents h2{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#e6e8ee;filter:none;font-family:Georgia,"Times New Roman",serif;font-weight:700}
+#parents p,#parents .skill span{color:#b4b9c7!important}
+#parents .skill b{color:#e6e8ee;font-family:Georgia,serif}
+#parents .skill{border-top:1px solid #3a4262;padding-top:10px}
+
+/* ===== home v2: carpet borders, smooth gold headings, stylized dividers ===== */
+:root{--carpet:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='54'%3E%3Crect width='54' height='54' fill='%235a0f1a'/%3E%3Crect x='1' y='1' width='52' height='52' fill='none' stroke='%23e9c26a' stroke-width='2'/%3E%3Crect x='4' y='4' width='46' height='46' fill='none' stroke='%238a5a14' stroke-width='.8'/%3E%3Crect x='16' y='16' width='22' height='22' fill='none' stroke='%23e9c26a' stroke-width='2'/%3E%3Cpath d='M18 5.1L21.4 8.5L18 11.9L14.6 8.5Z' fill='%23f0c96a'/%3E%3Cpath d='M18 42.1L21.4 45.5L18 48.9L14.6 45.5Z' fill='%23f0c96a'/%3E%3Cpath d='M8.5 14.6L11.9 18L8.5 21.4L5.1 18Z' fill='%23f0c96a'/%3E%3Cpath d='M45.5 14.6L48.9 18L45.5 21.4L42.1 18Z' fill='%23f0c96a'/%3E%3Cpath d='M27 5.1L30.4 8.5L27 11.9L23.6 8.5Z' fill='%23f0c96a'/%3E%3Cpath d='M27 42.1L30.4 45.5L27 48.9L23.6 45.5Z' fill='%23f0c96a'/%3E%3Cpath d='M8.5 23.6L11.9 27L8.5 30.4L5.1 27Z' fill='%23f0c96a'/%3E%3Cpath d='M45.5 23.6L48.9 27L45.5 30.4L42.1 27Z' fill='%23f0c96a'/%3E%3Cpath d='M36 5.1L39.4 8.5L36 11.9L32.6 8.5Z' fill='%23f0c96a'/%3E%3Cpath d='M36 42.1L39.4 45.5L36 48.9L32.6 45.5Z' fill='%23f0c96a'/%3E%3Cpath d='M8.5 32.6L11.9 36L8.5 39.4L5.1 36Z' fill='%23f0c96a'/%3E%3Cpath d='M45.5 32.6L48.9 36L45.5 39.4L42.1 36Z' fill='%23f0c96a'/%3E%3Ccircle cx='13.5' cy='8.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='13.5' cy='45.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='8.5' cy='13.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='45.5' cy='13.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='22.5' cy='8.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='22.5' cy='45.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='8.5' cy='22.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='45.5' cy='22.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='31.5' cy='8.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='31.5' cy='45.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='8.5' cy='31.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='45.5' cy='31.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='40.5' cy='8.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='40.5' cy='45.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='8.5' cy='40.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='45.5' cy='40.5' r='1.3' fill='%232fbf7a'/%3E%3Ccircle cx='8.5' cy='8.5' r='5' fill='%23f0c96a'/%3E%3Ccircle cx='8.5' cy='8.5' r='2.2' fill='%235a0f1a'/%3E%3Ccircle cx='45.5' cy='8.5' r='5' fill='%23f0c96a'/%3E%3Ccircle cx='45.5' cy='8.5' r='2.2' fill='%235a0f1a'/%3E%3Ccircle cx='8.5' cy='45.5' r='5' fill='%23f0c96a'/%3E%3Ccircle cx='8.5' cy='45.5' r='2.2' fill='%235a0f1a'/%3E%3Ccircle cx='45.5' cy='45.5' r='5' fill='%23f0c96a'/%3E%3Ccircle cx='45.5' cy='45.5' r='2.2' fill='%235a0f1a'/%3E%3C/svg%3E")}
+h2.gold{display:block;width:fit-content;background:linear-gradient(180deg,#fff3c4 0%,#f6d27a 38%,#d9a441 70%,#b07a22 100%);-webkit-background-clip:text;background-clip:text}
+nav{border-bottom:0!important}
+nav::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:6px;background:var(--carpet);background-size:auto 6px;opacity:.9}
+.divider{display:block;width:min(560px,80%);height:34px;margin:0 auto;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 34'%3E%3Cg fill='none' stroke='%23d9a441' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M10 17 H200 M360 17 H550'/%3E%3Cpath d='M200 17 C220 3 240 3 252 17 C240 31 220 31 200 17Z M360 17 C340 3 320 3 308 17 C320 31 340 31 360 17Z'/%3E%3Cpath d='M120 17 c8-8 16-8 22 0 M418 17 c8 8 16 8 22 0' /%3E%3C/g%3E%3Ccircle cx='258' cy='17' r='3' fill='%23f6d27a'/%3E%3Ccircle cx='302' cy='17' r='3' fill='%23f6d27a'/%3E%3Ccircle cx='10' cy='17' r='2.5' fill='%23d9a441'/%3E%3Ccircle cx='550' cy='17' r='2.5' fill='%23d9a441'/%3E%3C/svg%3E")}
+.quote{border-left:0!important;padding:14px 18px!important;border:8px solid transparent!important;border-image:var(--carpet) 18 round!important;background:#0b0820 padding-box}
+footer{border-top:0!important;position:relative}
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--carpet);background-size:auto 6px;opacity:.9}
+/* parents and teachers: inside a carpet border, rich matte gold */
+#parents .panel{border:22px solid transparent!important;border-image:var(--carpet) 18 round!important;border-radius:0!important;background:radial-gradient(120% 100% at 50% 0%,#1a1438 0%,#0b0a1e 60%,#06050f 100%) padding-box!important;padding:34px 36px!important;box-shadow:0 20px 60px #000c!important}
+#parents h2{font-family:var(--display)!important;color:#e2b25a!important;text-shadow:0 2px 0 #2a1802,0 0 18px rgba(217,164,65,.25)}
+#parents .eyebrow{color:#c9a35a!important}
+#parents .skill{border-top:0!important;padding-top:0!important;border-left:2px solid #8a5a14;padding-left:12px!important}
+#parents .skill b{color:#e2b25a!important;font-family:var(--display)!important}
+/* game cards jump straight into the game */
+a.card{text-decoration:none;color:inherit;transition:transform .2s}
+a.card:hover,a.card:focus-visible{transform:translateY(-4px)}
+a.card h3::after{content:" \203a"}
+.herotrailer{margin:22px 0 0;max-width:560px}.herotrailer video{width:100%;display:block;border-radius:14px;border:1px solid rgba(246,210,122,.35);box-shadow:0 12px 36px rgba(0,0,0,.5);background:#000}.herotrailer figcaption{font:700 13px system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.famwrap{margin-top:18px;max-width:640px}
+.famstage{position:relative;height:150px;border-radius:16px;border:1px solid rgba(246,210,122,.28);background:radial-gradient(ellipse at 50% 120%,rgba(246,210,122,.16),transparent 60%),rgba(0,0,0,.25);overflow:hidden;touch-action:pan-y}
+.famstage::after{content:"";position:absolute;left:6%;right:6%;bottom:12px;height:1px;background:linear-gradient(90deg,transparent,rgba(246,210,122,.55),transparent)}
+.famd{position:absolute;bottom:10px;cursor:grab;touch-action:none}.famb{cursor:default}
+.fammsg{position:absolute;left:0;top:0;bottom:0;width:40%;display:flex;align-items:center;padding:12px 18px}
+.fmline{color:#f3e3bd;font:500 15px/1.45 system-ui,sans-serif;opacity:0;transition:opacity .4s}.fmline b{color:#f6d27a}.fmline.show{opacity:1}
+@media (max-width:480px){.famstage{height:200px}.fammsg{position:absolute;width:auto;right:0;bottom:auto;height:62px;border-right:0;border-bottom:1px solid rgba(246,210,122,.18)}}
+.famcta{display:inline-block;margin-top:10px;font-weight:800;color:var(--gold-hi)}
+.famhint{color:var(--muted);font-size:14px;margin:6px 0 0}.famplay{background:none;border:0;color:var(--gold-hi);font:inherit;font-weight:700;cursor:pointer;padding:0}
+.mpill{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;flex-direction:row-reverse;align-items:center;gap:8px}
+.mpbtn{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid rgba(246,210,122,.6);background:rgba(10,12,30,.92);color:#f6d27a;font:800 14px system-ui,sans-serif;cursor:pointer;box-shadow:0 0 18px rgba(246,210,122,.35)}
+.mpill.on .mpbtn{background:linear-gradient(#f3cf78,#a86e1e);color:#1e1202}
+.mpname{display:none;color:#c9b98f;font:12px system-ui,sans-serif;background:rgba(10,12,30,.85);padding:4px 8px;border-radius:8px}.mpill.on .mpname{display:block}
+@media (prefers-reduced-motion:no-preference){.mpill:not(.on) .mpic{animation:mpg 1.6s ease-in-out infinite alternate}@keyframes mpg{to{text-shadow:0 0 10px #f6d27a}}}
+/* take it with you: the live Gogo Candle */
+.realcandle{width:240px;height:520px;border-radius:22px;overflow:hidden;background:#000;box-shadow:0 0 0 1px rgba(246,210,122,.35),0 18px 50px rgba(0,0,0,.55);margin-inline:auto}.realcandle iframe{width:375px;height:812px;border:0;transform:scale(.64);transform-origin:0 0;display:block}
+
+.candleart{width:110px;height:auto;display:block}
+.candlecta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:16px}
+.cqr{margin:0;text-align:center}.cqr img{display:block;width:120px;height:120px;border-radius:10px;border:2px solid #d9a441}.cqr figcaption{font:600 12px system-ui,sans-serif;color:var(--muted);margin-top:6px}
+@media (max-width:820px){.cqr{display:none}}
+@media (prefers-reduced-motion:no-preference){.candleart .fl{transform-origin:55px 62px;animation:flick 1.4s ease-in-out infinite alternate}@keyframes flick{to{transform:scale(1.06,1.12) rotate(2deg);opacity:.9}}}
+@media (max-width:820px){#parents .panel{border-width:14px!important;padding:22px 18px!important}}
+
+.divider{position:relative}
+.dgem{position:absolute;left:50%;top:50%;width:76px;height:60px;transform:translate(-50%,-50%);filter:drop-shadow(0 0 12px rgba(47,227,154,.75)) drop-shadow(0 4px 8px #000)}
+.candlebox{position:relative;width:96px;padding-top:110px;cursor:pointer;touch-action:none}
+.candlebox .cbody{display:block;width:96px;height:auto}
+.candlebox .wick{position:absolute;width:63.1px;left:17.8px;top:83.2px}
+.candlebox .cflame{position:absolute;width:120px;height:130px;left:-10.5px;top:-25px;pointer-events:none}
+@media(max-width:700px){footer{padding-bottom:96px}}
+@media(max-width:700px){.mpill{right:max(8px,env(safe-area-inset-right,0px));bottom:max(8px,env(safe-area-inset-bottom,0px))}.mpbtn{width:42px;height:42px;padding:0;justify-content:center;border-radius:50%;font-size:18px}.mptx{display:none}}
+.rc-link{display:block;position:relative;text-decoration:none}.rc-link iframe{pointer-events:none}.rc-tap{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:2;white-space:nowrap;padding:8px 14px;border-radius:999px;background:linear-gradient(#f3cf78,#a86e1e);color:#1e1202;font:800 13px system-ui,sans-serif;box-shadow:0 4px 14px #000a}
+@media(max-width:700px){a.note{font-size:0;width:42px;height:42px;padding:0;border-radius:50%;left:max(8px,env(safe-area-inset-left,0px));bottom:max(8px,env(safe-area-inset-bottom,0px));display:grid;place-items:center}a.note::before{content:"\270E";font-size:19px}}
+.hero2{display:inline-block;padding:11px 18px;border-radius:999px;border:1.5px solid var(--gold-hi,#f6d27a);color:var(--gold-hi,#f6d27a);font:800 15px system-ui,sans-serif;text-decoration:none}
+</style>
+<style>.ages{font:700 17px system-ui,sans-serif;color:#9fe8c6;letter-spacing:.04em;margin:2px 0 10px}.buywrap{display:inline-flex;align-items:center;gap:8px}.bounce{display:inline-block;font:900 30px system-ui;color:#f6d27a;animation:ggb 0.9s ease-in-out infinite}@keyframes ggb{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}.privnote{color:#c9b98f;font:14px system-ui,sans-serif;margin-top:8px}</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand gold" href="/">Gogo Guardians</a>
+  <a class="l" href="/read/">Read free</a><a class="l" href="/schools/">For schools</a><a class="l" href="/partners/">Partners</a>
+  <a class="btn" href="/play/" style="padding:9px 18px;font-size:15px">Play free</a>
+</div></nav>
+
+<main>
+<div class="wrap hero">
+  <div class="cover"><img src="/promo/cover.jpg" alt="Gogo Guardians book cover: Oliver and Alibaba on a flying carpet"><img class="gogo" src="/img/pose_cheer.jpg" alt=""></div>
+  <div>
+    <span class="eyebrow">A magic phone. Forty thieves. One question.</span>
+    <h1 class="gold">Gogo Guardians</h1>
+    <p class="ages">For ages 8 to 12 &middot; An illustrated book and a riddle game</p>
+    <div class="fire" aria-hidden="true"><video src="/img/fire_strip.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+    <p class="lead">Oliver's grandma gives him a phone for his 13th birthday. That night it starts to glow. Inside lives Gogo, an ancient guardian spirit, and soon Oliver is flying with Alibaba and the Forty Thieves across worlds no one on Earth has seen.</p>
+    <div class="row"><span class="buywrap"><a class="btn" href="/checkout/">Get the complete adventure &middot; $14.95</a><span class="bounce" aria-hidden="true">&#x2190;</span></span></div>
+    <div class="row" style="margin-top:12px;gap:10px;flex-wrap:wrap"><a class="ghost hero2" href="/read/">Read 3 chapters free</a><a class="ghost hero2" href="/play/">Play the riddles free</a><a class="ghost hero2" href="#" data-share>&#x2934; Share with a friend</a></div>
+    <p style="margin:10px 0 0;font:15px/1.5 system-ui,sans-serif;color:var(--muted)">Not right for your family? Email us within 7 days for a full refund: <a href="mailto:admin@iddas.tech" style="color:#e6bd62">admin@iddas.tech</a></p>
+    <p style="margin:8px 0 0;font:600 15px/1.5 system-ui,sans-serif"><a href="/buy/" style="color:#e6bd62">See everything that's included</a></p>
+    <figure class="herotrailer"><video controls playsinline preload="none" poster="/promo/trailer-film.jpg"><source src="/promo/trailer-film.mp4" type="video/mp4"></video><figcaption>Watch the trailer</figcaption></figure>
+  </div>
+</div>
+
+<span class="divider" aria-hidden="true"><canvas class="dgem"></canvas></span>
+<section id="play"><div class="wrap">
+  <span class="eyebrow">The game</span>
+  <h2 class="gold">85+ riddles. 21 chapters. 10 worlds.</h2>
+  <p style="max-width:40em;color:var(--muted)">Every riddle comes from the book, four or more in every chapter, from easy to hard, with a short animation from that chapter playing beside it. Read a chapter, then prove you're a Guardian. Win emeralds, unlock new worlds, and talk out loud with Gogo. The first 3 chapters are free.</p>
+  <div class="cards">
+    <a class="card" href="/play/#pick"><img src="/img/q1-3.jpg" alt="Grandma and Grandpa see the gift glow"><h3>The Riddle Trail</h3><p>Four riddles for every chapter, from easy to hard. Get it right the first time for full emeralds.</p></a>
+    <a class="card" href="/play/#guards"><img src="/img/guards.jpg" alt="Two hooded guards at a fork in the desert road"><h3>The Two Guards</h3><p>One always lies. One always tells the truth. You get one question. Choose wisely.</p></a>
+    <a class="card" href="/play/#bats"><img src="/img/p019.jpg" alt="Dracula and his bats in a golden forest"><h3>Dracula's Bats</h3><p>Millions of bats, one glowing phone, and a split second to decide.</p></a>
+    <a class="card" href="/play/#worlds"><img src="/read/img/c20-welcome-to-zolara.jpg" alt="Welcome to Zolara, one of the ten worlds"><h3>Ten Worlds</h3><p>Zolara, Raptor, the Haunted Mountain, the Emerald Moon and more. Each one opens as your treasure grows.</p></a>
+    <a class="card" href="/play/#pick"><img src="/read/img/p032.jpg" alt="Alibaba and the Forty Thieves on a flying carpet"><h3>The Flying Carpet</h3><p>Sink a golden ball past the villains to open your next riddle.</p></a>
+    <a class="card" href="/play/"><img src="/promo/game-4.jpg" alt="The Guardian certificate"><h3>Become a Guardian</h3><p>Fill the thieves' treasure with emeralds and earn your own Guardian certificate.</p></a>
+  </div>
+  <p style="max-width:44em;color:var(--muted);margin-top:18px"><b style="color:var(--gold-hi)">Ten worlds, and a little dancing family.</b> Two tiny gold dancers live on the game screen and dance to the music. Tap them to change moves, drag them anywhere, double-tap to put them to sleep. Bring them close together and a little one is born. The family grows as you play, and Mom always catches the little one when it falls.</p>
+  <div class="famwrap"><div id="famstage" class="famstage" aria-label="The little dancing family"></div><a class="famcta" href="/play/">Spend more time with us in the game &rarr;</a><p class="famhint">Tap a dancer to change moves &middot; drag or throw them anywhere &middot; <button type="button" class="famplay" onclick="window.__famMusic&&window.__famMusic()">&#9835; play the music</button></p></div>
+  <div class="row"><a class="btn" href="/play/">Start playing</a></div>
+</div></section>
+
+<span class="divider" aria-hidden="true"><canvas class="dgem"></canvas></span>
+<section id="book"><div class="wrap book">
+  <div class="lock"><img src="/img/p071.jpg" alt="Flying carpets carrying a giant emerald"><div class="door"><div><b class="gold">The whole adventure</b><p style="margin-top:8px">Chapters 1 to 3 are free. The whole adventure unlocks with one purchase.</p></div></div></div>
+  <div>
+    <span class="eyebrow">The book</span>
+    <h2 class="gold">Gogo and the Forty Thieves</h2>
+    <p style="font:700 20px Georgia,serif;color:var(--gold-hi);margin:4px 0 6px">A full-length illustrated adventure. 21 chapters. 99 full-color pictures.</p>
+    <p style="color:var(--muted)">Oliver's small town in Kansas, ancient Persia, a planet of bird scholars, a jungle world of lizard people, and an emerald big enough to change everything. Every chapter comes with short animations that bring its pictures to life, and riddles to prove you read it.</p>
+    <p class="quote">It started as bedtime stories, made up on the spot for my own three children. They laughed so loud that telling the story was easy.</p>
+    <p style="margin:14px 0 4px;color:var(--muted)"><b style="color:var(--gold-hi)">Everything included:</b> the illustrated book (read online on any device), the riddle game, the animations, the soundtrack and the Guardian certificate. One purchase, no subscription. For parents and guardians.</p>
+    <div class="price">$14.95 <span class="soon">Founders price</span></div>
+    <p style="color:var(--muted);margin:4px 0 0">Founders price: $14.95, everything included, until December 31, 2026. Then $19.95.</p>
+    <div class="row"><span class="buywrap"><a data-keep class="btn" href="/checkout/">Get it now: $14.95</a><span class="bounce" aria-hidden="true">&#x2190;</span></span></div>
+    <p style="margin:10px 0 0;font:15px/1.5 system-ui,sans-serif;color:var(--muted)">Not right for your family? Email us within 7 days for a full refund: <a href="mailto:admin@iddas.tech" style="color:#e6bd62">admin@iddas.tech</a></p><p style="margin:6px 0 0;font:15px/1.5 system-ui,sans-serif"><a href="/read/" style="color:#e6bd62">Not sure yet? Read the first 3 chapters free.</a></p>
+    <p class="privnote">Kids never make an account or share anything. We collect nothing from children. <a href="/privacy/" style="color:#f6d27a">Privacy for families</a></p>
+    <div class="getbox"><b class="gold" style="font:700 20px Georgia,serif">What you get</b><ul>
+      <li><b>The illustrated book</b>: 21 chapters and 99 full-color illustrations. Read online on any device.</li>
+      <li><b>The riddle game</b>: 85+ riddles from the story, easy to hard, with Gogo cheering you on out loud.</li>
+      <li><b>Ten worlds to unlock</b>: the two guards, Dracula's bats, Zolara, Raptor, the Haunted Mountain and more.</li>
+      <li><b>Short animations for every chapter</b>: the pictures move, breathe and glow while you solve the riddles.</li>
+      <li><b>The soundtrack</b>: six songs of harmonium, dhol and tabla from Alibaba's part of the world, yours to download.</li>
+      <li><b>A little dancing family</b> that lives on the screen, and <b>Game Secrets</b> that open after Chapter 12.</li>
+      <li><b>Emerald treasure, prizes and a Guardian certificate</b> with your child's name on it.</li>
+    </ul></div>
+    <div class="getbox"><b class="gold" style="font:700 20px Georgia,serif">Share it and earn 35%</b><p style="margin:6px 0 4px;color:var(--muted)">Parents, teachers and homeschool groups: tell other families about Gogo Guardians and earn 35% of every sale you send, about $5.23 each. Free to join.</p><a data-keep class="btn" style="background:linear-gradient(#3ee6a0,#13875a);color:#03140c;border:1px solid #9fffd0;box-shadow:0 0 18px rgba(47,227,154,.5)" href="/partners/" target="_blank" rel="noopener">Join as a Guardian partner: earn 35%</a><p style="margin:10px 0 0;color:var(--muted);font-size:15px">Work with schools or education groups? Bring a school and earn on every family and seat. <a href="/schools/" style="color:#e6bd62">For schools</a> &middot; <a href="/guide/" style="color:#e6bd62">How it works</a></p></div>
+    <p style="margin-top:14px;color:var(--muted)">&#9835; <button type="button" class="famplay" onclick="window.__famMusic&&window.__famMusic()">Listen to the soundtrack</button>: six songs of harmonium, dhol and tabla from the game and the film. The download comes with the full adventure.</p>
+  </div>
+</div></section>
+
+<span class="divider" aria-hidden="true"><canvas class="dgem"></canvas></span>
+<section id="parents"><div class="wrap"><div class="panel">
+  <span class="eyebrow">For parents and teachers</span>
+  <h2 class="gold">A story that makes them read</h2>
+  <p style="color:var(--muted);max-width:44em">Kids read a chapter, then answer riddles that come straight from it. The game is built to practice:</p>
+  <div class="skills">
+    <div class="skill"><b>Reading comprehension</b><span>Every riddle checks what they just read.</span></div>
+    <div class="skill"><b>Vocabulary</b><span>Rich words, read aloud by Gogo.</span></div>
+    <div class="skill"><b>Careful thinking</b><span>Logic puzzles like the two guards.</span></div>
+    <div class="skill"><b>Spelling and writing</b><span>Bonus emeralds for typing answers.</span></div>
+  </div>
+  <p style="color:var(--muted);margin-top:20px">Kids play with a Guardian name only. No accounts, no chat, and nothing is collected from children. <a href="/privacy/" style="color:var(--gold-hi)">Privacy for families</a>.<br>Teachers and schools: <a href="/schools/" style="color:var(--gold-hi)">bring Gogo to your school</a>, $7.49 for families or $4.99 a seat.</p>
+</div></div></section>
+
+<span class="divider" aria-hidden="true"><canvas class="dgem"></canvas></span>
+<section><div class="wrap candle">
+  <a class="realcandle rc-link" href="https://candlemenow.com/candle/ignite/cndl_Fx8HVbgRnqFG" target="_blank" rel="noopener" data-keep aria-label="Open the Gogo Guardians Candle"><span class="rc-tap">Tap to open it full screen</span><iframe tabindex="-1" src="https://candlemenow.com/candle/ignite/cndl_Fx8HVbgRnqFG" title="The Gogo Guardians Candle, live" loading="lazy" allow="clipboard-write; web-share"></iframe></a>
+  <div><span class="eyebrow">For parents</span><h2 class="gold" style="margin-bottom:8px">Take it with you</h2><p style="color:var(--muted)">This is the real Gogo Guardians Candle. Light it and it saves straight to your phone's wallet, no app needed. It holds the trailer, the free chapters and the full adventure, and its share button passes it to another family in one tap.</p>
+    <div class="candlecta"><a class="btn" data-keep href="https://candlemenow.com/candle/ignite/cndl_Fx8HVbgRnqFG" target="_blank" rel="noopener">Light the Gogo Candle</a><figure class="cqr"><img src="/promo/candle-qr.png" alt="QR code for the Gogo Guardians Candle" width="120" height="120"><figcaption>Scan with your phone</figcaption></figure></div></div>
+</div></section>
+
+<span class="divider" aria-hidden="true"><canvas class="dgem"></canvas></span>
+<section id="author"><div class="wrap author">
+  <span class="eyebrow">The author</span>
+  <div style="display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:8px"><img src="/img/author.jpg" alt="Zafar Amin, author of Gogo Guardians" style="width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid #d9a441;box-shadow:0 0 28px rgba(217,164,65,.45);flex:none"><div style="flex:1;min-width:260px">
+  <h2 class="gold" style="margin-top:0">Zafar Amin</h2>
+  <p style="color:var(--muted)">Zafar Amin started Gogo Guardians as bedtime stories, made up on the spot for his three children. They laughed so hard that writing the book was easy. A songwriter and guitarist who has played in bands from Lahore to Los Angeles, he wanted the adventure to sound as good as it looks, so the game has its own music. Gogo Guardians is his first book.</p></div></div>
+</div></section>
+</main>
+
+<footer><div style="text-align:center;font:700 14px system-ui,sans-serif;padding-top:14px;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center"><a href="/buy/" style="color:var(--gold-hi)">What's included</a><a href="/schools/" style="color:var(--gold-hi)">For schools</a><a href="/partners/" style="color:var(--gold-hi)">Partners</a><a href="/privacy/" style="color:var(--gold-hi)">Privacy</a><a data-keep href="https://form.jotform.com/263087088389069" target="_blank" rel="noopener" style="color:var(--gold-hi)">Leave a note</a></div><div style="text-align:center;color:var(--muted);font:600 13px system-ui,sans-serif;padding-top:10px">Follow Gogo Guardians</div><div class="wrap social" style="display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;padding:14px 0 4px;font:700 14px system-ui,sans-serif"><a data-keep href="https://www.youtube.com/@gogoguardians" target="_blank" rel="noopener" style="color:var(--gold-hi);text-decoration:none">YouTube</a><a data-keep href="https://www.instagram.com/gogoguardians/" target="_blank" rel="noopener" style="color:var(--gold-hi);text-decoration:none">Instagram</a><a data-keep href="https://www.tiktok.com/@gogoguardians" target="_blank" rel="noopener" style="color:var(--gold-hi);text-decoration:none">TikTok</a><a data-keep href="https://www.facebook.com/profile.php?id=61596670401800" target="_blank" rel="noopener" style="color:var(--gold-hi);text-decoration:none">Facebook</a><a data-keep href="https://www.pinterest.com/gogoguardians/" target="_blank" rel="noopener" style="color:var(--gold-hi);text-decoration:none">Pinterest</a><a data-keep href="https://payhip.com/GogoGuardians" target="_blank" rel="noopener" style="color:var(--gold-hi);text-decoration:none">Store</a></div><div class="wrap"><span>&copy; 2026 Zafar Amin. All rights reserved.</span><a href="/privacy/" style="color:var(--gold-hi);text-decoration:none">Privacy for families</a><span>Gogo Guardians</span></div></footer>
+
+<script src="/vendor/three.min.js"></script>
+<script>
+// rotating emeralds in the dividers (the same cut as the game's emerald)
+(function(){if(!window.THREE)return;const G=[];
+ function gem(canvas){try{const r=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});r.setPixelRatio(Math.min(2,devicePixelRatio||1));
+  const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(30,1,.1,50);cam.position.set(0,0.55,6.2);cam.lookAt(0,0,0);
+  const prof=[[0.001,-1.05],[0.35,-0.75],[0.72,-0.32],[1.0,0],[1.0,0.07],[0.86,0.22],[0.62,0.42],[0.001,0.42]].map(p=>new THREE.Vector2(p[0],p[1]));
+  const geo=new THREE.LatheGeometry(prof,12);geo.scale(1.28,1,0.95);
+  const outer=new THREE.MeshPhongMaterial({color:0x0fb866,emissive:0x022a17,specular:0xffffff,shininess:180,flatShading:true,transparent:true,opacity:.86});
+  const inner=new THREE.MeshPhongMaterial({color:0x3fe39a,emissive:0x07502f,specular:0xffffff,shininess:90,flatShading:true,transparent:true,opacity:.55,side:THREE.BackSide});
+  const g=new THREE.Group();g.add(new THREE.Mesh(geo,inner));g.add(new THREE.Mesh(geo,outer));g.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo,1),new THREE.LineBasicMaterial({color:0xc9ffe6,transparent:true,opacity:.3})));
+  g.rotation.x=0.16;g.position.y=0.31;sc.add(g);sc.add(new THREE.AmbientLight(0x2a5a44,.9));
+  const l1=new THREE.DirectionalLight(0xffffff,1.15);l1.position.set(3,4,5);sc.add(l1);const l2=new THREE.DirectionalLight(0xb8ffe0,.8);l2.position.set(-4,2,2);sc.add(l2);const l3=new THREE.PointLight(0xfff3c4,1.4,20);l3.position.set(0,-3,3);sc.add(l3);
+  const w=canvas.clientWidth,h=canvas.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();
+  const st={r,sc,cam,g,canvas,vis:false};G.push(st);return st}catch(e){return null}}
+ const io=new IntersectionObserver(es=>es.forEach(e=>{const st=G.find(x=>x.canvas===e.target);if(st)st.vis=e.isIntersecting}));
+ document.querySelectorAll('.dgem').forEach((c,i)=>{const st=gem(c);if(st){st.g.rotation.y=i*.9;io.observe(c)}});
+ const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;G.forEach(s=>s.r.render(s.sc,s.cam));
+ (function loop(){if(!RM)G.forEach(s=>{if(!s.vis)return;s.g.rotation.y+=.012;s.r.render(s.sc,s.cam)});requestAnimationFrame(loop)})()})();
+// a living candle flame you can play with
+(function(){const c=document.querySelector('.cflame');if(!c)return;const box=c.closest('.candlebox');const x=c.getContext('2d');const D=Math.min(2,devicePixelRatio||1);c.width=120*D;c.height=130*D;x.scale(D,D);
+ let lean=0,tl=0,st=0,ts=0,flare=0;const sparks=[];
+ const aim=e=>{const r=c.getBoundingClientRect();const dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height*.75),d=Math.hypot(dx,dy);const near=d<200;tl=near?Math.max(-30,Math.min(30,-dx*.3)):0;ts=near?(1-d/200)*16:0};
+ addEventListener('pointermove',aim);box.addEventListener('pointerleave',()=>{tl=0;ts=0});
+ box.addEventListener('pointerdown',e=>{aim(e);flare=1;for(let i=0;i<14;i++)sparks.push({x:60+lean,y:80,vx:(Math.random()-.5)*2.4,vy:-1.5-Math.random()*2.5,l:1})});
+ function shape(bx,by,w,h,tx,ty,s){x.beginPath();x.moveTo(bx,by);x.bezierCurveTo(bx-w*s*1.4,by-h*.22,bx-w*s*.9+lean*.4,by-h*.7,tx,ty+h*(1-s)*.6);x.bezierCurveTo(bx+w*s*.9+lean*.4,by-h*.7,bx+w*s*1.4,by-h*.22,bx,by);x.closePath()}
+ (function draw(t){const k=t/1000;lean+=(tl-lean)*.08;st+=(ts-st)*.1;flare*=.94;x.clearRect(0,0,120,130);
+  const bx=60,by=121,f=Math.sin(k*9)*1.4+Math.sin(k*23)*.9+(Math.random()-.5)*1.1,h=58+st+flare*26+f*2,w=11.5+flare*4+Math.sin(k*7)*.7,tx=bx+lean+f*1.3,ty=by-h;
+  x.globalCompositeOperation='lighter';let g=x.createRadialGradient(bx+lean*.4,by-h*.45,2,bx+lean*.4,by-h*.45,64);g.addColorStop(0,'rgba(255,190,90,'+(.32+flare*.3)+')');g.addColorStop(1,'rgba(255,150,50,0)');x.fillStyle=g;x.fillRect(0,0,120,130);
+  g=x.createLinearGradient(bx,by,tx,ty);g.addColorStop(0,'rgba(255,120,30,0)');g.addColorStop(.14,'rgba(255,140,40,.92)');g.addColorStop(.6,'rgba(255,196,80,.85)');g.addColorStop(1,'rgba(255,110,30,0)');shape(bx,by,w,h,tx,ty,1);x.fillStyle=g;x.fill();
+  g=x.createLinearGradient(bx,by,tx,ty);g.addColorStop(0,'rgba(255,255,240,0)');g.addColorStop(.16,'rgba(255,252,228,1)');g.addColorStop(.55,'rgba(255,238,175,.9)');g.addColorStop(1,'rgba(255,220,140,0)');shape(bx,by,w,h*.82,bx+lean*.8+f,by-h*.82,.58);x.fillStyle=g;x.fill();
+  x.globalCompositeOperation='source-over';x.beginPath();x.ellipse(bx,by-5,3.6,6,0,0,7);x.fillStyle='rgba(70,110,255,.5)';x.fill();
+  for(let i=sparks.length-1;i>=0;i--){const p=sparks[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.03;p.l-=.02;if(p.l<=0){sparks.splice(i,1);continue}x.fillStyle='rgba(255,220,140,'+p.l.toFixed(2)+')';x.fillRect(p.x,p.y,2,2)}
+  requestAnimationFrame(draw)})(0)})();
+</script>
+<script src="/comments.js" defer></script>
+<script src="/partner.js"></script><script src="/fam.js?v=7"></script><style>@media(max-width:700px){body.buyvis a.note,body.buyvis .mpill{opacity:0;pointer-events:none;transition:opacity .2s}}
+@media(max-width:560px){.skills{grid-template-columns:1fr!important}}.skill b{overflow-wrap:anywhere;hyphens:auto}
+</style>
+<script>/* Phones: hide the floating note and music buttons while a Buy button is on screen, so they never cover it. */
+(function(){if(!('IntersectionObserver' in window))return;var seen=new Set();var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?seen.add(e.target):seen.delete(e.target)});document.body.classList.toggle('buyvis',seen.size>0)});document.querySelectorAll('a[href^="/checkout/"]').forEach(function(a){io.observe(a)})})();</script>
+<script src="/share.js" defer></script></body>
+</html>
