@@ -17,6 +17,7 @@ ol{padding-left:22px}ol li{margin:10px 0}ol b{color:var(--gold-hi)}
 .cta{display:inline-block;margin:18px 0 8px;padding:14px 28px;border-radius:999px;background:linear-gradient(#3ee6a0,#13875a);color:#03140c;font-weight:800;font-size:18px;text-decoration:none;border:1px solid #9fffd0;box-shadow:0 0 22px rgba(47,227,154,.5)}
 .note{color:var(--muted);font-size:14px}.card{margin-top:22px;padding:18px 20px;border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(246,210,122,.08),transparent)}
 a{color:var(--gold-hi)}
+.agree{display:inline-flex;gap:10px;align-items:flex-start;margin:18px 0 0;font-size:16px;cursor:pointer}.agree input{width:22px;height:22px;margin-top:2px;accent-color:#d9a441;flex:none}.cta.off{opacity:.45;filter:grayscale(.6);box-shadow:none}
 </style><link rel="stylesheet" href="/tips.css"><script src="/tips.js" defer></script></head><body><div class="wrap">
 <div class="top"><a href="/">&larr; Gogo Guardians</a><a href="/play/">Play free</a></div>
 <h1>Become a Guardian Partner</h1>
@@ -29,7 +30,8 @@ a{color:var(--gold-hi)}
 <li><b>You get your own link</b> to Gogo Guardians. Share it with parents, your homeschool group, your class or your followers.</li>
 <li><b>Every family that buys through your link earns you 35%.</b> We pay partners monthly by PayPal, Wise or Payoneer.</li>
 </ol>
-<a class="cta" href="https://payhip.com/auth/register/af6af5cf688f47e">Join free as a partner</a>
+<label class="agree"><input type="checkbox" id="agreeT"> I have read and agree to the <a href="/partner-terms/" target="_blank" rel="noopener">Partner Terms</a>.</label><br><a class="cta off" id="joinBtn" href="https://payhip.com/auth/register/af6af5cf688f47e" aria-disabled="true">Join free as a partner</a><p class="note" id="agreeMsg" hidden>Please read and tick the Partner Terms first.</p>
+<script>(function(){var c=document.getElementById('agreeT'),b=document.getElementById('joinBtn'),m=document.getElementById('agreeMsg');function u(){b.classList.toggle('off',!c.checked);b.setAttribute('aria-disabled',c.checked?'false':'true');if(c.checked)m.hidden=true}c.addEventListener('change',u);b.addEventListener('click',function(e){if(!c.checked){e.preventDefault();m.hidden=false;c.focus()}});u()})();</script>
 <div style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px"><a href="/guide/#partners" style="display:inline-block;padding:11px 18px;border-radius:999px;border:1.5px solid var(--gold-hi);color:var(--gold-hi);font-weight:700;text-decoration:none">Earnings, schools &amp; payouts</a><a href="/kit/" style="display:inline-block;padding:11px 18px;border-radius:999px;border:1.5px solid var(--gold-hi);color:var(--gold-hi);font-weight:700;text-decoration:none">Promoter kit</a><a href="/schools/" style="display:inline-block;padding:11px 18px;border-radius:999px;border:1.5px solid var(--gold-hi);color:var(--gold-hi);font-weight:700;text-decoration:none">Bring a school</a></div>
 <p class="note">You'll create your partner account on Payhip, the store that runs our checkout. It asks for your name, email and a password. Partners must be adults; kids never sign up.</p>
 <p class="note" style="margin-top:18px">How earnings, schools and payouts work, with examples: <a href="/guide/">How it works</a>.</p>
