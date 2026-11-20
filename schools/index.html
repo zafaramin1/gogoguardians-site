@@ -153,14 +153,19 @@ form input,form select{padding:12px;border-radius:10px;border:1px solid #5a3a0c;
  <h2>Request your school's page</h2>
  <p>We confirm every school with a staff member before a page goes live.<button type="button" class="qtip" aria-label="More about this">?</button><span class="qtip-body">If the staff member's email ends with the school's own website address, the page goes live the moment they click our link. If we have to check by hand, using the school's or district's own staff directory, we do it within 24 hours on weekdays.</span> Grown-ups only: we never ask for any child's details.</p>
  <form id="sf">
-  <input name="school" placeholder="School name" required>
-  <div class="two"><input name="city" placeholder="City" required><input name="country" placeholder="Country" required></div>
-  <input name="site" placeholder="School's website, for example springfieldschools.org" required>
-  <div class="two"><input name="name" placeholder="Your name" required><input name="email" type="email" placeholder="Your email" required></div>
-  <select name="madeby" required><option value="">I am...</option><option value="school">Staff at this school</option><option value="partner">A partner bringing this school in</option></select>
-  <input name="staff" type="email" placeholder="Email of one staff member at the school" required>
+  <p class="note" style="margin:0">Boxes marked * are required.</p>
+  <input name="school" placeholder="School name *" required>
+  <input name="address" placeholder="Street address" autocomplete="street-address">
+  <div class="two"><input name="city" placeholder="City *" required><input name="state" placeholder="State or province *" required></div>
+  <div class="two"><input name="zip" placeholder="ZIP or postal code" autocomplete="postal-code"><input name="country" placeholder="Country *" value="United States" required></div>
+  <input name="phone" type="tel" placeholder="School's phone number *" required>
+  <input name="site" placeholder="School's website, for example springfieldschools.org *" required>
+  <div class="two"><input name="name" placeholder="Your name *" required><input name="email" type="email" placeholder="Your email *" required></div>
+  <div class="two"><input name="myphone" type="tel" placeholder="Your phone"><input name="whatsapp" type="tel" placeholder="Your WhatsApp, if different"></div>
+  <select name="madeby" required><option value="">I am... *</option><option value="school">Staff at this school</option><option value="partner">A partner bringing this school in</option></select>
+  <input name="staff" type="email" placeholder="Email of one staff member at the school *" required>
   <p class="note" style="margin:-4px 0 0">The school contact's email must end with the school's own website address. Example: if the school's website is springfieldschools.org, the email must end in @springfieldschools.org. If it doesn't, for example a district or personal address, we'll verify the school manually.</p>
-  <select name="students" required><option value="">About how many students?</option><option>Under 100</option><option>100 to 300</option><option>300 to 600</option><option>600 to 1,000</option><option>Over 1,000</option></select>
+  <select name="students" required><option value="">About how many students? *</option><option>Under 100</option><option>100 to 300</option><option>300 to 600</option><option>600 to 1,000</option><option>Over 1,000</option></select>
   <input name="pkey" type="text" pattern="[A-Za-z0-9_-]{3,40}" placeholder="Your Payhip partner key (so your sales are credited to you)">
   <p class="note" style="margin:-4px 0 0">Your partner key is the code at the end of your Payhip partner link. No partner link yet? <a href="/partners/#agreeT" target="_blank" rel="noopener">Join as a partner here</a>, then come back. You can also send it to us later.</p>
   <input name="hp_url" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
