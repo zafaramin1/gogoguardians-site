@@ -55,7 +55,7 @@ form input,form select{padding:12px;border-radius:10px;border:1px solid #5a3a0c;
 .done{display:none;padding:16px;border-radius:12px;border:1px solid #13875a;background:rgba(19,135,90,.15)}
 .sig{margin-top:30px;font:italic 20px 'Fondamento',Georgia,serif;color:#ffe9b0}
 @media(max-width:680px){.hero,.gogo{grid-template-columns:1fr}.gogo{text-align:center}.hero img{max-width:200px;margin:0 auto}.gogo img{margin:0 auto}.price{justify-content:center}.two{grid-template-columns:1fr}.calc{justify-content:center}}
-</style></head><body><div class="wrap">
+</style><link rel="stylesheet" href="/tips.css"></head><body><div class="wrap">
 <div class="top"><a href="/">&larr; Gogo Guardians</a><a href="/read/">Read 3 chapters free</a></div>
 <div id="page" style="display:none">
 <h1 id="nm"></h1>
@@ -69,12 +69,12 @@ form input,form select{padding:12px;border-radius:10px;border:1px solid #5a3a0c;
 </div>
 <div class="panel">
  <h2>Did your school pay for yours?</h2>
- <p>If your school sent you a class code, your copy is already paid for. Enter the code at checkout and pay nothing. It works once per family.</p>
+ <p>If your school sent you a class code, your copy is already paid for. Enter the code at checkout and pay nothing. It works once per family.<button type="button" class="qtip" aria-label="More about this">?</button><span class="qtip-body">Your school has one class code for all its families. Each family enters it once at checkout, pays nothing, and gets its own personal unlock code that starts with GOGO. That personal code is what opens the book and the game on your devices.</span></p>
  <a class="btn" href="/checkout/">Use my free code</a>
 </div>
 <div class="panel">
  <h2>For our families</h2>
- <div class="price"><b>$8.99</b><s>$14.95</s><span>through our school</span></div>
+ <div class="price"><b>$8.99</b><s>$14.95</s><span>through our school</span><button type="button" class="qtip" aria-label="More about this">?</button><span class="qtip-body">Anyone can buy here for $8.99: parents, grandparents, cousins and friends. Each purchase is its own family copy, and $3.00 of every sale goes to the school.</span></div>
  <p id="famtxt">Grandparents, cousins and friends can get it too.</p>
  <a class="btn" id="fam" href="#">Get it for $8.99</a>
 </div>
@@ -95,7 +95,7 @@ const show=s=>{
  document.getElementById('nm').textContent='Gogo at '+s.school;
  document.getElementById('ct').textContent=s.city;
  document.getElementById('fam').href='https://payhip.com/b/jMZfz'+(/^[A-Za-z0-9_-]{3,40}$/.test(s.pkey||'')?'/'+encodeURIComponent(s.pkey):'');
- if(s.made_by==='school')document.getElementById('famtxt').textContent='Grandparents, cousins and friends can get it too, and part of every sale supports our school.';
+ document.getElementById('famtxt').textContent='Grandparents, cousins and friends can get it too, and part of every sale supports our school.';
  document.getElementById('page').style.display='block';
 };
 const none=()=>{document.getElementById('none').style.display='block'};
@@ -106,4 +106,4 @@ const none=()=>{document.getElementById('none').style.display='block'};
  none();
 })();
 </script>
-</body></html>
+<script src="/tips.js" defer></script></body></html>
