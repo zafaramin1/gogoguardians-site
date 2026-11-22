@@ -19,7 +19,16 @@ try{const pq=new URLSearchParams(location.search).get('pay');if(pq==='stripe')lo
 if(useStripe){
   fetch('https://script.google.com/macros/s/AKfycbwqA1VJG6I0bxBLmsr0cd_okIm-n9G5QW_BHgnLbP3xryLFGm_Zb5sAnifrgrNFGIWGjg/exec?stripe=create'+(key?'&p='+encodeURIComponent(key):''))
     .then(r=>r.json()).then(j=>location.replace(j.ok&&j.url?j.url:URL_)).catch(()=>location.replace(URL_));
-}else location.replace(URL_);
+}else goStore(URL_);
+// Count "Begin checkout" in Google Ads (ad visitors only matter, but it is harmless for others), then go to the store.
+// The store opens after Google confirms, or after 900 ms at most.
+function goStore(u){var done=false;function go(){if(!done){done=true;location.replace(u)}}
+ try{window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};
+  gtag('js',new Date());gtag('config','AW-18588125852');
+  gtag('event','conversion',{send_to:'AW-18588125852/4313CJGyx70dEJyVwZ9F',event_callback:go});
+  var t=document.createElement('script');t.async=true;t.src='https://www.googletagmanager.com/gtag/js?id=AW-18588125852';document.head.appendChild(t);
+ }catch(e){}
+ setTimeout(go,900);}
 </script>
 <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#07091e;color:#f3e3bd;font:17px/1.5 Georgia,serif;text-align:center;padding:20px}h1{color:#f6d27a;font-size:34px;margin:0 0 8px}a{color:#f6d27a}.p{font-size:22px;color:#f6d27a}</style></head>
 <body><div><h1>Gogo Guardians</h1><p class="p"><b>$14.95</b> Founders price, everything included</p><p>Taking you to the secure checkout...<br><a id="go" href="https://payhip.com/buy?link=cup6q">Tap here if it doesn't open</a></p><p><a href="/">Back to the site</a> &middot; <a href="/play/">Play free</a></p></div>
