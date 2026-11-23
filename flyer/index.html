@@ -43,14 +43,26 @@ ul{margin:6px 0 0;padding-left:20px}li{margin:5px 0}
 <li>Read on a phone, tablet or computer. Nothing to install.</li>
 <li>Kids never make an account. We collect nothing from children.</li>
 </ul>
-<div class="qr"><img src="/promo/qr-read.png" alt="QR code to read 3 chapters free"><div>
+<div class="qr"><img id="qrimg" src="/promo/qr-read.png" alt="QR code to read 3 chapters free"><div>
 <b>Scan to read the first 3 chapters free</b><br>
-Or visit <b>gogoguardians.com/read</b>
-<p class="price">The complete adventure: $14.95, one payment, no subscription.</p>
+Or visit <b id="qrurl">gogoguardians.com/read</b>
+<p class="price" id="fprice">The complete adventure: $14.95, one payment, no subscription.</p>
 <p class="code">Your school's family code:<span></span></p>
 </div></div>
 <h2>A note for parents</h2>
 <p>Every chapter comes with riddles from the story, so kids read carefully to win. It's a screen-time trade most parents are happy to make, and a gift that keeps them reading over the holidays.</p>
 <div class="foot"><span>gogoguardians.com</span><span>Zafar Amin, author</span><span>For purchase by a parent or guardian</span></div>
 </div>
+<script>
+// Sale price on the printed flyer, same dates as /go/.
+(function(){try{var S=[["2026-11-27","2026-11-27","4.99","Black Friday only"],["2026-11-28","2026-12-01","9.99","through Dec 1"],["2026-12-02","2026-12-26","11.99","through Dec 26"]],d=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
+S.forEach(function(x){if(d>=x[0]&&d<=x[1])document.getElementById('fprice').textContent='The complete adventure: $'+x[2]+' ('+x[3]+'), one payment, no subscription.'})}catch(e){}})();
+// Partner flyer: /flyer/?p=KEY prints a QR and link that carry the partner's key, so their sales are credited.
+(function(){try{var k=new URLSearchParams(location.search).get('p');if(!k||!/^[A-Za-z0-9_-]{3,40}$/.test(k))return;
+var u='https://gogoguardians.com/read/?p='+encodeURIComponent(k);
+document.getElementById('qrurl').textContent='gogoguardians.com/read/?p='+k;
+var s=document.createElement('script');s.src='/vendor/qrcode-generator.js';
+s.onload=function(){var q=qrcode(0,'M');q.addData(u);q.make();document.getElementById('qrimg').src=q.createDataURL(8,2);};
+document.head.appendChild(s);}catch(e){}})();
+</script>
 </body></html>
