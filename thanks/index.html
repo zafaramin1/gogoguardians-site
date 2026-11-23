@@ -41,6 +41,19 @@ async function claim(n){
  try{const u=await fetch(GS+'?unlock='+encodeURIComponent(j.code)+'&dev='+encodeURIComponent(dev())).then(r=>r.json());if(u.ok){localStorage.setItem('gg_key',j.code);localStorage.setItem('gg_paid','1')}}catch(e){}
  $('go').hidden=false;
 }
-if(/^cs_(test|live)_[A-Za-z0-9]+$/.test(sid))claim(0);else{$('lead').textContent='Thank you!';$('msg').textContent='If you just paid, your code is in your email.'}
+// Tell Google Ads a purchase happened (once per browser session), at the price of the day.
+function price(){var S=[["2026-11-27","2026-11-27",4.99],["2026-11-28","2026-12-01",9.99],["2026-12-02","2026-12-26",11.99]],v=14.95;
+ try{var d=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});S.forEach(function(s){if(d>=s[0]&&d<=s[1])v=s[2]})}catch(e){}return v}
+function reportPurchase(){try{if(sessionStorage.getItem('gg_bought'))return;sessionStorage.setItem('gg_bought','1')}catch(e){}
+ try{window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','AW-18588125852');
+  gtag('event','conversion',{send_to:'AW-18588125852/6HtlCMzJxr0dEJyVwZ9F',value:price(),currency:'USD'});
+  var t=document.createElement('script');t.async=true;t.src='https://www.googletagmanager.com/gtag/js?id=AW-18588125852';document.head.appendChild(t);}catch(e){}}
+const fromPayhip=new URLSearchParams(location.search).get('from')==='payhip';
+if(/^cs_(test|live)_[A-Za-z0-9]+$/.test(sid)){reportPurchase();claim(0);}
+else if(fromPayhip){reportPurchase();
+ $('lead').textContent='Thank you! Your order is complete.';
+ $('msg').textContent='Your unlock code and the download link for your illustrated book are in your email now, from Payhip (subject: "Thank you for your purchase!"). Open the game, tap any locked chapter and enter the code. Not in your inbox? Check spam or promotions, or write to admin@iddas.tech and we will help.';
+ $('go').hidden=false;}
+else{$('lead').textContent='Thank you!';$('msg').textContent='If you just paid, your code is in your email.'}
 </script>
 </body></html>
