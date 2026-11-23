@@ -52,7 +52,7 @@ const fromPayhip=new URLSearchParams(location.search).get('from')==='payhip';
 if(/^cs_(test|live)_[A-Za-z0-9]+$/.test(sid)){reportPurchase();claim(0);}
 else if(fromPayhip){reportPurchase();
  $('lead').textContent='Thank you! Your order is complete.';
- $('msg').textContent='Your unlock code and the download link for your illustrated book are in your email now, from Payhip (subject: "Thank you for your purchase!"). Open the game, tap any locked chapter and enter the code. Not in your inbox? Check spam or promotions, or write to admin@iddas.tech and we will help.';
+ $('msg').textContent='Your receipt from Payhip is in your email now (subject: "Thank you for your purchase!"). Your personal unlock code is the License Key in that receipt, for example GOGO-XXXX-XXXX. Open the game, tap any locked chapter and enter it. Not in your inbox? Check spam or promotions, or write to admin@iddas.tech and we will help.';
  $('go').hidden=false;}
 else{$('lead').textContent='Thank you!';$('msg').textContent='If you just paid, your code is in your email.'}
 </script>
