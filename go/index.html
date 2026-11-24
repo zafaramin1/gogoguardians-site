@@ -23,6 +23,7 @@ h1{font:700 28px/1.15 Georgia,serif;color:var(--gold);margin:0 0 8px}
 .price{font:800 30px system-ui,sans-serif;color:var(--gold)}.was{color:var(--muted);text-decoration:line-through;font-weight:700}
 .note{color:var(--muted);font-size:14px}
 .btn{display:block;text-align:center;background:var(--btn);color:#0d172b;font:800 19px system-ui,sans-serif;padding:16px 20px;border-radius:12px;text-decoration:none;margin-top:10px}
+.btn.read{background:#2b3a7a;color:#fff;border:1.5px solid var(--btn)}
 .btn.ghost{background:transparent;color:var(--gold);border:1.5px solid var(--btn);font-size:17px;padding:13px 18px}
 .refund{margin:10px 0 0;color:var(--muted);font-size:14px;text-align:center}
 .inc{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
@@ -47,7 +48,7 @@ h1{font:700 28px/1.15 Georgia,serif;color:var(--gold);margin:0 0 8px}
 
 <div class="buyrow"><span class="was" id="was" hidden>$14.95</span><span class="price" id="price">$14.95</span><span class="note">one time, up to 3 family devices</span></div>
 <a class="btn" id="buy" href="/checkout/">Get the whole adventure</a>
-<a class="btn ghost" href="/read/">Read the first 3 chapters free</a>
+<a class="btn read" href="/read/">Read the first 3 chapters free</a>
 <p class="refund">Not right for your family? Full refund within 7 days, no questions asked.</p>
 
 <ul class="inc">
@@ -67,6 +68,7 @@ h1{font:700 28px/1.15 Georgia,serif;color:var(--gold);margin:0 0 8px}
 // Price shown on this page. Sale windows switch automatically by ET date; Payhip's own price is changed by the scheduled tasks.
 var SALES=[["2026-11-27","2026-11-27","4.99","Black Friday only: $4.99 today"],["2026-11-28","2026-12-01","9.99","Black Friday weekend: $9.99 through Dec 1"],["2026-12-02","2026-12-26","11.99","Christmas price: $11.99 through Dec 26"]];
 try{var d=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
+if(d>='2026-11-24'&&d<='2026-11-26'){var t=document.getElementById('sale');t.textContent='This Friday only: $4.99. Read the first 3 chapters free now.';t.style.display='block';}
 for(var i=0;i<SALES.length;i++){var s=SALES[i];if(d>=s[0]&&d<=s[1]){document.getElementById('price').textContent='$'+s[2];document.getElementById('barprice').textContent='$'+s[2];document.getElementById('was').hidden=false;var b=document.getElementById('sale');b.textContent=s[3];b.style.display='block';}}}catch(e){}
 // Keep a partner's key (?p=) so the sale is credited to them.
 try{var k=new URLSearchParams(location.search).get('p');if(k&&/^[A-Za-z0-9_-]{3,40}$/.test(k)){['buy','buy2'].forEach(function(id){document.getElementById(id).href='/checkout/?p='+encodeURIComponent(k)});}}catch(e){}
