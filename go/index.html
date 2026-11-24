@@ -26,6 +26,7 @@ h1{font:700 28px/1.15 Georgia,serif;color:var(--gold);margin:0 0 8px}
 .btn.read{background:#2b3a7a;color:#fff;border:1.5px solid var(--btn)}
 .btn.ghost{background:transparent;color:var(--gold);border:1.5px solid var(--btn);font-size:17px;padding:13px 18px}
 .refund{margin:10px 0 0;color:var(--muted);font-size:14px;text-align:center}
+.remind{margin:18px 0 0;padding:12px;border:1px solid var(--line);border-radius:12px}.remind label{display:block;font-size:14px;color:var(--ink);margin:0 0 8px}.rmrow{display:flex;gap:8px}.rmrow input{flex:1;min-width:0;padding:11px 12px;border-radius:10px;border:1px solid #9a6a1c;background:#0a0d24;color:var(--ink);font:16px system-ui}.rmrow button{padding:11px 14px;border-radius:10px;border:0;background:var(--btn);color:#0d172b;font:800 15px system-ui;cursor:pointer}.rmdone{margin:8px 0 0;color:var(--mint);font-size:14px}
 .inc{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
 .inc li{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px}
 .inc img{width:84px;height:56px;object-fit:cover;border-radius:8px;flex:none}
@@ -51,6 +52,12 @@ h1{font:700 28px/1.15 Georgia,serif;color:var(--gold);margin:0 0 8px}
 <a class="btn read" href="/read/">Read the first 3 chapters free</a>
 <p class="refund">Not right for your family? Full refund within 7 days, no questions asked.</p>
 <p class="refund">A gift? <a href="/giftcard/">Print a gift card to wrap</a>.</p>
+<form class="remind" id="remind" method="post" action="https://submit.jotform.com/submit/263275599417067" target="rmframe">
+<input type="hidden" name="formID" value="263275599417067"><input type="hidden" name="q3_q3_textbox1" value="go page">
+<label for="rmEmail">Not today? We'll email you the $4.99 link on Black Friday morning, once.</label>
+<div class="rmrow"><input id="rmEmail" type="email" name="q2_q2_email0" required placeholder="your@email.com" autocomplete="email"><button type="submit">Remind me</button></div>
+<p class="rmdone" id="rmdone" hidden>Done. Watch for one email on Friday morning.</p>
+</form><iframe name="rmframe" title="" hidden style="display:none"></iframe>
 
 <ul class="inc">
 <li><img src="/promo/book-spread.jpg" alt="" loading="lazy"><div><b>The illustrated book.</b> 21 chapters, 99 full-color pictures, on any phone, tablet or computer.</div></li>
@@ -73,6 +80,9 @@ if(d>='2026-11-24'&&d<='2026-11-26'){var t=document.getElementById('sale');t.tex
 for(var i=0;i<SALES.length;i++){var s=SALES[i];if(d>=s[0]&&d<=s[1]){document.getElementById('price').textContent='$'+s[2];document.getElementById('barprice').textContent='$'+s[2];document.getElementById('was').hidden=false;var b=document.getElementById('sale');b.textContent=s[3];b.style.display='block';}}}catch(e){}
 // Keep a partner's key (?p=) so the sale is credited to them.
 try{var k=new URLSearchParams(location.search).get('p');if(k&&/^[A-Za-z0-9_-]{3,40}$/.test(k)){['buy','buy2'].forEach(function(id){document.getElementById(id).href='/checkout/?p='+encodeURIComponent(k)});}}catch(e){}
+// Remind-me box: only before Friday; hide on and after Nov 27.
+try{var dd=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});if(dd>='2026-11-27')document.getElementById('remind').style.display='none';
+document.getElementById('remind').addEventListener('submit',function(){var f=this;setTimeout(function(){f.querySelector('.rmrow').style.display='none';f.querySelector('label').style.display='none';document.getElementById('rmdone').hidden=false;},300)});}catch(e){}
 // Sticky buy bar once the main button scrolls out of view.
 try{new IntersectionObserver(function(e){document.getElementById('bar').classList.toggle('on',!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(document.getElementById('buy'));}catch(e){}
 // Sound: swap the silent loop for the full trailer.
