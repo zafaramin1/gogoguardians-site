@@ -2,7 +2,8 @@
 (function(){try{
 var GS='https://script.google.com/macros/s/AKfycbwqA1VJG6I0bxBLmsr0cd_okIm-n9G5QW_BHgnLbP3xryLFGm_Zb5sAnifrgrNFGIWGjg/exec';
 var p=location.pathname.replace(/\/+$/,'')||'/';
-var map={'/':'home','/buy':'buy','/checkout':'checkout','/trailer':'trailer','/read':'read','/play':'play','/schools':'schools','/s':'school-page','/gift':'gift','/partners':'partners','/preview':'preview','/groups':'groups','/kit':'kit','/thanks':'thanks','/guide':'guide','/go':'go'};
+var map={'/':'home','/buy':'buy','/checkout':'checkout','/trailer':'trailer','/read':'read','/play':'play','/schools':'schools','/s':'school-page','/gift':'gift','/partners':'partners','/preview':'preview','/groups':'groups','/kit':'kit','/thanks':'thanks','/guide':'guide','/go':'buy'};
+// /go (ad landing page) counts as 'buy': the counting script only accepts its known page names.
 var page=map[p];if(!page)return;
 var q=new URLSearchParams(location.search),src=null;
 // Our own browsers: open any page once with ?notrack=1 and that browser is never counted (?notrack=0 undoes it).
