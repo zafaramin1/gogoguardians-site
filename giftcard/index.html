@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><script src="/count.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Printable Gift Card - Gogo Guardians</title>
+<meta name="description" content="Print a Gogo Guardians gift card to wrap: the illustrated adventure and riddle game for ages 8 to 12.">
+<style>
+:root{--bg:#07091e;--ink:#f3e3bd;--gold:#f6d27a;--btn:#d4a537;--muted:#b3a487;--line:rgba(246,210,122,.3)}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:18px 16px 60px}
+h1{font:700 28px/1.15 Georgia,serif;color:var(--gold);margin:10px 0 6px}
+.note{color:var(--muted);font-size:14px;margin:0 0 14px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.form label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+.form .full{grid-column:1/-1}
+input,textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #9a6a1c;background:#0a0d24;color:var(--ink);font:16px system-ui}
+textarea{min-height:64px;resize:vertical}
+.btn{display:inline-block;background:var(--btn);color:#0d172b;font:800 17px system-ui;padding:13px 20px;border-radius:12px;border:0;cursor:pointer;text-decoration:none}
+.btn.alt{background:transparent;color:var(--gold);border:1.5px solid var(--btn)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 22px}
+/* the card: landscape, prints at 7 x 5 in */
+.card{width:100%;aspect-ratio:7/5;border-radius:14px;overflow:hidden;display:grid;grid-template-columns:38% 1fr;background:#0b1230;border:2px solid var(--btn);box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.card .art{background:#000 url(/promo/cover.jpg) center/cover}
+.card .txt{padding:5% 6%;display:flex;flex-direction:column;gap:2%;color:var(--ink);font-family:Georgia,serif}
+.card .kick{font:italic 1em Georgia,serif;color:var(--gold);margin:0}
+.card h2{font:700 2.5em/1.05 Georgia,serif;color:var(--gold);margin:0}
+.card .to{font-size:1.3em;margin:.3em 0 0}
+.card .msgline{font-style:italic;font-size:1.2em;min-height:1.2em;margin:0}
+.card .what{font-size:1em;line-height:1.5;margin:.4em 0 0}
+.card .how{margin-top:auto;border-top:1px solid var(--line);padding-top:.6em;font-size:.95em;line-height:1.45}
+.card .code{font:800 1.3em system-ui,sans-serif;letter-spacing:.06em;color:var(--gold)}
+.cardbox{font-size:clamp(9px,2.2vw,16px)}
+@media (max-width:560px){.form{grid-template-columns:1fr}}
+@media print{
+ @page{size:letter landscape;margin:0.5in}
+ html,body{background:#fff}
+ .wrap>*:not(.cardbox){display:none!important}
+ .wrap{max-width:none;padding:0}
+ .cardbox{font-size:15px;width:7in;margin:0 auto}
+ .card{box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style></head>
+<body><div class="wrap">
+<a href="/" style="color:var(--gold);font:700 18px Georgia,serif;text-decoration:none">Gogo Guardians</a>
+<h1>A gift card to wrap</h1>
+<p class="note">Bought Gogo Guardians as a gift? Fill this in, print it, and put it under the tree. Your personal unlock code is the License Key in your Payhip receipt email (it looks like GOGO-XXXX-XXXX). Nothing you type here is sent anywhere.</p>
+<div class="form">
+<label>To<input id="fTo" placeholder="Lily" maxlength="40"></label>
+<label>From<input id="fFrom" placeholder="Grandma and Grandpa" maxlength="50"></label>
+<label class="full">A short message (optional)<textarea id="fMsg" maxlength="140" placeholder="Merry Christmas! A new adventure is waiting for you."></textarea></label>
+<label class="full">Unlock code (optional, from your receipt)<input id="fCode" placeholder="GOGO-XXXX-XXXX" maxlength="20" style="text-transform:uppercase"></label>
+</div>
+<div class="row"><button class="btn" type="button" onclick="window.print()">Print the gift card</button><a class="btn alt" href="/go/">Don't have it yet? Get the book</a></div>
+<div class="cardbox"><div class="card">
+<div class="art" role="img" aria-label="Gogo Guardians cover"></div>
+<div class="txt">
+<p class="kick">A gift for a new Guardian</p>
+<h2>Gogo Guardians</h2>
+<p class="to">For <b id="cTo">you</b>, from <b id="cFrom">someone who loves you</b></p>
+<p class="msgline" id="cMsg"></p>
+<p class="what">A magic phone, Alibaba and the Forty Thieves. 21 illustrated chapters, a riddle game to unlock every world, and a Guardian certificate with your name.</p>
+<div class="how">Go to <b>gogoguardians.com/gift</b> and enter your code:<br><span class="code" id="cCode">GOGO-____-____</span></div>
+</div></div></div>
+</div>
+<script>
+function v(id){return (document.getElementById(id).value||'').trim()}
+function upd(){document.getElementById('cTo').textContent=v('fTo')||'you';
+ document.getElementById('cFrom').textContent=v('fFrom')||'someone who loves you';
+ document.getElementById('cMsg').textContent=v('fMsg');
+ document.getElementById('cCode').textContent=(v('fCode')||'GOGO-____-____').toUpperCase();}
+['fTo','fFrom','fMsg','fCode'].forEach(function(id){document.getElementById(id).addEventListener('input',upd)});
+</script>
+</body></html>
